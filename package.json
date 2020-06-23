@@ -4,8 +4,8 @@
   "description": "Official website for musician/artist, Steve Black",
   "main": "index.js",
   "scripts": {
-    "start": "lerna run start",
-    "dev": "lerna run dev",
+    "start": "lerna run start --stream",
+    "dev": "lerna run dev --stream",
     "clean": "lerna run clean",
     "clean:install:build": "lerna run clean:install:build",
     "test": "test",
