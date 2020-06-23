@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve",
     "build": "ng build",
     "clean": "rm -rf dist node_modules package-lock.json",
     "clean:install:build": "npm run clean && npm i && npm run build",

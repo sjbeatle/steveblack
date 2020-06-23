@@ -1,0 +1,27 @@
+{
+  "name": "steveblack",
+  "version": "1.0.0",
+  "description": "Official website for musician/artist, Steve Black",
+  "main": "index.js",
+  "scripts": {
+    "start": "lerna run start",
+    "dev": "lerna run dev",
+    "clean": "lerna run clean",
+    "clean:install:build": "lerna run clean:install:build",
+    "test": "test",
+    "postinstall": "lerna bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjbeatle/steveblack.git"
+  },
+  "author": "Steve Black <stevenjblack@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sjbeatle/steveblack/issues"
+  },
+  "homepage": "https://github.com/sjbeatle/steveblack#readme",
+  "dependencies": {
+    "lerna": "^3.22.1"
+  }
+}

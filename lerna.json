@@ -1,0 +1,15 @@
+{
+  "packages": ["packages/*"],
+  "version": "1.0.0",
+  "command": {
+    "bootstrap": {
+      "concurrency": 8
+    },
+    "run": {
+      "concurrency": 8
+    },
+    "clean": {
+      "yes": true
+    }
+  }
+}
