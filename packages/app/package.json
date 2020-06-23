@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "clean": "rm -rf dist node_modules package_lock.json",
+    "clean": "rm -rf dist node_modules package-lock.json",
     "clean:install:build": "npm run clean && npm i && npm run build",
     "test": "ng test",
     "lint": "ng lint",
