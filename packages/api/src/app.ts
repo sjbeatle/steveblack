@@ -1,12 +1,45 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express from 'express';
+import cors from 'cors'
+import mongoose, { Model, model, Schema } from 'mongoose';
+import { config } from './db';
 
-const app: Application = express();
+export interface ICovers extends Document {
+  artist: string;
+  songs: string[];
+}
 
-const add = (a: number, b: number): number => a + b;
+export const CoversSchema: Schema = new Schema({
+  artist: { type: String },
+  songs: { type: Array },
+}, { collection: 'covers' });
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-  console.log(add(5, 5));
-  res.send('Hello World');
+export const Covers: Model<ICovers> = model<ICovers>('covers', CoversSchema);
+
+const PORT = 4000;
+const app = express();
+app.use(cors());
+const dbConnect = () => {
+  mongoose.connect(
+    config.DB,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+  )
+    // tslint:disable-next-line:no-console
+    .then(() => console.log('DB Connected!'))
+    // tslint:disable-next-line:no-console
+    .catch((er: any) => console.log(`DB Connection Error: ${er.message}`));
+};
+dbConnect();
+
+app.get('/covers', async (req, res) => {
+  try {
+    const result = await Covers.find().exec();
+    res.send(result);
+  } catch (error) {
+    res.status(500).send(error);
+  }
 });
 
-app.listen(5000, () => console.log('Server running'));
+app.listen(PORT, () => console.log('Listening on port: ', PORT));
