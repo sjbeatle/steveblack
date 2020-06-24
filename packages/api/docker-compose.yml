@@ -3,5 +3,7 @@ services:
   mongo:
     container_name: mongo
     image: mongo
+    volumes:
+      - /Users/stevenblack/Sites/SERVICES/mongo:/data/db
     ports:
       - "27017:27017"
