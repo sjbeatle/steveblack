@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "lerna run start --stream",
+    "build": "lerna run build --stream",
     "dev": "lerna run dev --stream",
     "clean": "lerna run clean",
     "clean:install:build": "lerna run clean:install:build",
