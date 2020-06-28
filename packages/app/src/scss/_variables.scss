@@ -17,6 +17,8 @@ $grid-breakpoints: (
   --button-color: #F8F9F9;
   --button-bkg: #e58a49;
   --button-bkg-info: #1c1c1c;
+
+  --spinner-color: var(--base-color);
 }
 
 html.dark {

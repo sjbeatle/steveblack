@@ -1,0 +1,9 @@
+.sb-spinner {
+  display: flex;
+  margin: 3rem auto;
+  justify-content: center;
+
+  &__fa-svg {
+    color: var(--spinner-color);
+  }
+}
