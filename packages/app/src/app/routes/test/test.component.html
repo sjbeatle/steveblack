@@ -1,10 +1,15 @@
 <div class="row">
   <div class="col">
-    <button class="test-theme-switcher" (click)="toggleTheme()">Toggle Theme</button>
+    <button
+      class="test-theme-switcher"
+      (click)="toggleTheme()"
+    >Toggle Theme</button>
     <h1>&lt;h1&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h1>
     <p [innerHTML]="loremLink"></p>
     <h2>&lt;h2&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h2>
-    <p>{{ lorem }}</p>
+    <p>
+      <fa-icon [icon]="faCoffee"></fa-icon> {{ lorem }}
+    </p>
     <h3>&lt;h3&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h3>
     <p>{{ lorem }}</p>
     <h4>&lt;h4&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h4>
@@ -14,7 +19,19 @@
     <h6>&lt;h6&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h6>
     <p>{{ lorem }}</p>
     <hr>
-    <div class="sb-hr sb-hr--thin"></div>
+    <h2>Spinner</h2>
+    <app-spinner></app-spinner>
+    <hr class="sb-hr--thin" />
+    <h2>Buttons</h2>
+    <h3>Normal</h3>
+    <button>Normal</button>
+    <h3>Info</h3>
+    <button class="sb-button--info">Info</button>
+    <h3>Icon</h3>
+    <button class="sb-button--icon">
+      <fa-icon [icon]="faCoffee"></fa-icon>
+    </button>
+    <hr class="sb-hr--thin" />
     <h2>&lt;address&gt;</h2>
     <address>
       {{ lorem }}
@@ -127,14 +144,38 @@
       <label>&lt;label&gt; - label element</label>
     </fieldset>
     <button>&lt;button&gt; - button element</button><br>
-    <input type="submit" value="&lt;input type=submit&gt; - submit input" /><br>
-    <input type="text" value="&lt;input type=text&gt;" /><br>
-    <input type="email" value="&lt;input type=email&gt;" /><br>
-    <input type="password" value="&lt;input type=password&gt;" /><br>
-    <input type="number" value="12345" /><br>
-    <input type="search" value="&lt;input type=search&gt;" /><br>
-    <input type="tel" value="&lt;input type=tel&gt;" /><br>
-    <input type="url" value="&lt;input type=url&gt;" /><br>
+    <input
+      type="submit"
+      value="&lt;input type=submit&gt; - submit input"
+    /><br>
+    <input
+      type="text"
+      value="&lt;input type=text&gt;"
+    /><br>
+    <input
+      type="email"
+      value="&lt;input type=email&gt;"
+    /><br>
+    <input
+      type="password"
+      value="&lt;input type=password&gt;"
+    /><br>
+    <input
+      type="number"
+      value="12345"
+    /><br>
+    <input
+      type="search"
+      value="&lt;input type=search&gt;"
+    /><br>
+    <input
+      type="tel"
+      value="&lt;input type=tel&gt;"
+    /><br>
+    <input
+      type="url"
+      value="&lt;input type=url&gt;"
+    /><br>
     <input type="color" /><br>
     <input type="range" /><br>
     <input type="date" /><br>

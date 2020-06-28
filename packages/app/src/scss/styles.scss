@@ -140,11 +140,15 @@ input[type="button"],
   display: inline-block;
   line-height: 1;
   padding: .8rem 1.4rem;
-  transition: filter 250ms;
+  position: relative;
+  transition: filter 250ms, top 250ms;
+
+  &:active {
+    top: 1px;
+  }
 
   &:focus {
-    outline: 1px solid var(--button-color);
-    outline-offset: -4px;
+    @include base-focus;
   }
 
   &:hover {
@@ -153,5 +157,11 @@ input[type="button"],
 
   &.#{$btn-class}--info {
     background: var(--button-bkg-info);
+  }
+
+  &.#{$btn-class}--icon {
+    height: 2em;
+    width: 2em;
+    padding: 0;
   }
 }
