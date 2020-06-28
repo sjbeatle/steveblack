@@ -21,7 +21,7 @@ $grid-breakpoints: (
   --spinner-color: var(--base-color);
 }
 
-html.dark {
+body.dark {
   --base-color: #F8F9F9;
   --base-color-rgb: 232, 233, 243;
   --base-bkg: #363436;
