@@ -6,7 +6,8 @@ $grid-breakpoints: (
   xl: 1200px
 ) !default;
 
-:root {
+:root,
+body.dark .invert-theme {
   --base-color: #363436;
   --base-color-rgb: 38, 38, 38;
   --base-bkg: #F8F9F9;
@@ -23,11 +24,12 @@ $grid-breakpoints: (
 
   --selection-bkg: #56BAC4;
 
-  --card-border: #2C2A2C;
+  --card-border: #DFE0E0;
   --pop-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-body.dark {
+body.dark,
+body.light .invert-theme {
   --base-color: #F8F9F9;
   --base-color-rgb: 232, 233, 243;
   --base-bkg: #363436;
@@ -38,5 +40,5 @@ body.dark {
 
   --spinner-color: var(--base-color);
 
-  --card-border: #DFE0E0;
+  --card-border: #2C2A2C;
 }
