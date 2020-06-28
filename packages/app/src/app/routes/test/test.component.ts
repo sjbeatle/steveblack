@@ -1,10 +1,6 @@
 import { Component, HostBinding } from '@angular/core';
 import { faCoffee, faCircle, faFlag } from '@fortawesome/free-solid-svg-icons';
-
-enum THEMES {
-  light = 'light',
-  dark = 'dark',
-}
+import { ThemeService, THEMES } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-test',
@@ -22,11 +18,5 @@ export class TestComponent {
   faCircle = faCircle;
   faFlag = faFlag;
 
-  constructor() { }
-
-  toggleTheme() {
-    const htmlEl = document.getElementsByTagName('html')[0];
-    const isDark = htmlEl.classList.contains(THEMES.dark);
-    htmlEl.classList[isDark ? 'remove' : 'add'](THEMES.dark);
-  }
+  constructor(private themeService: ThemeService) { }
 }

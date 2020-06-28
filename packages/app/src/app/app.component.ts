@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +15,11 @@ export class AppComponent implements OnInit {
     return JSON.stringify(this._covers);
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private themeService: ThemeService) { }
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit() {
+    this.themeService.fetchTheme();
     // this.http.get('http://localhost:4000/covers')
     //   .subscribe(res => {
     //     console.log('>> TESTING >> res', res);

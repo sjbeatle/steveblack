@@ -21,6 +21,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+::selection {
+  background: var(--selection-bkg);
+}
+
 .sb-heading-1,
 .sb-heading-2,
 .sb-heading-3,
