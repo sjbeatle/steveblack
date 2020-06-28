@@ -8,7 +8,10 @@
     <p [innerHTML]="loremLink"></p>
     <h2>&lt;h2&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h2>
     <p>
-      <fa-icon [icon]="faCoffee"></fa-icon> {{ lorem }}
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon> {{ lorem }}
     </p>
     <h3>&lt;h3&gt; - Convallis, massa eu vestibulum commodo, quam mauris interdum arcu</h3>
     <p>{{ lorem }}</p>
@@ -24,12 +27,44 @@
     <hr class="sb-hr--thin" />
     <h2>Buttons</h2>
     <h3>Normal</h3>
-    <button>Normal</button>
-    <h3>Info</h3>
-    <button class="sb-button--info">Info</button>
-    <h3>Icon</h3>
+    <button>Normal</button>&nbsp; &nbsp;
+    <button>
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon>
+      <span>Normal w/Icon</span>
+    </button>
+    <h3>Icon Only</h3>
     <button class="sb-button--icon">
-      <fa-icon [icon]="faCoffee"></fa-icon>
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon>
+    </button>
+    <h3>Info</h3>
+    <button class="sb-button--info">Info</button>&nbsp; &nbsp;
+    <button class="sb-button--info sb-button--icon">
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon>
+    </button>
+    <h3>Pill</h3>
+    <button class="sb-button--pill sb-button--info">Pill</button>&nbsp; &nbsp;
+    <button class="sb-button--pill">Pill</button>&nbsp; &nbsp;
+    <button class="sb-button--pill sb-button--info">
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon>
+      <span>Info Pill w/Icon</span>
+    </button>&nbsp; &nbsp;
+    <button class="sb-button--pill sb-button--icon">
+      <fa-icon
+        [icon]="faCoffee"
+        title="coffee"
+      ></fa-icon>
     </button>
     <hr class="sb-hr--thin" />
     <h2>&lt;address&gt;</h2>

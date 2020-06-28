@@ -141,11 +141,25 @@ input[type="button"],
   background: var(--button-bkg);
   border-radius: rem(3);
   color: var(--button-color);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
   padding: .8rem 1.4rem;
   position: relative;
   transition: filter 250ms, top 250ms;
+
+  > * {
+    padding: 0 .5rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 
   &:active {
     top: 1px;
@@ -167,5 +181,11 @@ input[type="button"],
     height: 2em;
     width: 2em;
     padding: 0;
+  }
+
+  &.#{$btn-class}--pill {
+    border-radius: 2em;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
