@@ -18,10 +18,10 @@ export class AppComponent implements OnInit {
 
   // tslint:disable-next-line:use-lifecycle-interface
   ngOnInit() {
-    this.http.get('http://localhost:4000/covers')
-      .subscribe(res => {
-        console.log('>> TESTING >> res', res);
-        this._covers = res;
-      });
+    // this.http.get('http://localhost:4000/covers')
+    //   .subscribe(res => {
+    //     console.log('>> TESTING >> res', res);
+    //     this._covers = res;
+    //   });
   }
 }
