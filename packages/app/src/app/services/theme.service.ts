@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-
-export enum THEMES {
-  light = 'light',
-  dark = 'dark',
-}
+import { THEMES } from '@steveblack/interfaces';
 
 @Injectable({
   providedIn: 'root'

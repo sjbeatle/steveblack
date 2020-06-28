@@ -1,6 +1,7 @@
 import { Component, HostBinding } from '@angular/core';
 import { faCoffee, faCircle, faFlag } from '@fortawesome/free-solid-svg-icons';
-import { ThemeService, THEMES } from 'src/app/services/theme.service';
+import { THEMES } from '@steveblack/interfaces';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-test',
