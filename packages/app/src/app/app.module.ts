@@ -8,12 +8,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { TestComponent } from './routes/test/test.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

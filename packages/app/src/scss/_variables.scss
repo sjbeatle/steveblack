@@ -11,16 +11,19 @@ $grid-breakpoints: (
   --base-color-rgb: 38, 38, 38;
   --base-bkg: #F8F9F9;
   --base-bkg-rgb: 232, 233, 243;
-  --link: #e58a49;
   --base-focus: 2px dotted var(--link);
+  --base-border: #DFE0E0;
+  --link: #e58a49;
 
   --button-color: #F8F9F9;
-  --button-bkg: #e58a49;
+  --button-bkg: var(--link);
   --button-bkg-info: #1c1c1c;
 
   --spinner-color: var(--base-color);
 
   --selection-bkg: #56BAC4;
+
+  --pop-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 body.dark {
@@ -28,6 +31,9 @@ body.dark {
   --base-color-rgb: 232, 233, 243;
   --base-bkg: #363436;
   --base-bkg-rgb: 38, 38, 38;
+  --base-border: #2C2A2C;
 
   --button-color: #ffffff;
+
+  --spinner-color: var(--base-color);
 }
