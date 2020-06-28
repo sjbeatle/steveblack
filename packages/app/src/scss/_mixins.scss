@@ -1,0 +1,9 @@
+@function rem($px) {
+  $base: 16;
+  @return $px/$base + rem;
+}
+
+@mixin base-focus {
+  outline: var(--base-focus);
+  outline-offset: 2px;
+}

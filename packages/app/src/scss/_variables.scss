@@ -1,0 +1,29 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+:root {
+  --base-color: #363436;
+  --base-color-rgb: 38, 38, 38;
+  --base-bkg: #F8F9F9;
+  --base-bkg-rgb: 232, 233, 243;
+  --link: #e58a49;
+  --base-focus: 2px dotted var(--link);
+
+  --button-color: #F8F9F9;
+  --button-bkg: #e58a49;
+  --button-bkg-info: #1c1c1c;
+}
+
+html.dark {
+  --base-color: #F8F9F9;
+  --base-color-rgb: 232, 233, 243;
+  --base-bkg: #363436;
+  --base-bkg-rgb: 38, 38, 38;
+
+  --button-color: #ffffff;
+}
