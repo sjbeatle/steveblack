@@ -1,5 +1,5 @@
 {
-  "name": "steveblack-app",
+  "name": "@steveblack/app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -25,6 +25,7 @@
     "@fortawesome/angular-fontawesome": "^0.6.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.29",
     "@fortawesome/free-solid-svg-icons": "^5.13.1",
+    "@steveblack/interfaces": "^1.0.0",
     "bootstrap": "^4.5.0",
     "reset-css-complete": "^1.0.2",
     "rxjs": "~6.4.0",

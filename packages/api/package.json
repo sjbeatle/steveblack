@@ -1,5 +1,5 @@
 {
-  "name": "steveblack-api",
+  "name": "@steveblack/api",
   "version": "1.0.0",
   "description": "Official API for steveblackonline.com",
   "main": "dist/app.js",

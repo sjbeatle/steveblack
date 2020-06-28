@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "lerna run start --stream",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build --stream",
     "dev": "lerna run dev --stream",
     "clean": "lerna run clean",
+    "postclean": "rm -rf ./node_modules package-lock.json",
     "clean:install:build": "lerna run clean:install:build",
     "test": "test",
     "postinstall": "lerna bootstrap"
