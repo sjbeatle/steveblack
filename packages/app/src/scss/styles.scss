@@ -1,0 +1,157 @@
+@import '~src/scss/variables';
+@import '~src/scss/mixins';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~bootstrap/dist/css/bootstrap-grid.min';
+@import '~reset-css-complete/reset';
+
+/*------------------------------------*\
+  #Bootstrap Assist
+\*------------------------------------*/
+.container {
+  display: block;
+}
+
+
+/*------------------------------------*\
+  #BASE
+\*------------------------------------*/
+body {
+  color: var(--base-color);
+  background-color: var(--base-bkg);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.sb-heading-1,
+.sb-heading-2,
+.sb-heading-3,
+.sb-heading-4,
+.sb-heading-5,
+.sb-heading-6,
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+  line-height: 1.2;
+}
+
+.sb-heading-1,
+h1 {
+  font-size: 2.3rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: breakpoint-min(md)) {
+    font-size: 2.8rem;
+  }
+}
+
+.sb-heading-2,
+h2 {
+  font-size: 1.9rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: breakpoint-min(md)) {
+    font-size: 2.1rem;
+  }
+}
+
+.sb-heading-3,
+h3 {
+  font-size: 1.55rem;
+  margin-bottom: 1.25rem;
+
+  @media (min-width: breakpoint-min(md)) {
+    font-size: 1.638rem;
+  }
+}
+
+.sb-heading-4,
+h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.sb-heading-5,
+h5 {
+  font-size: 1.162rem;
+  margin-bottom: 1rem;
+}
+
+.sb-heading-6,
+h6 {
+  font-size: .938rem;
+  margin-bottom: 1rem;
+}
+
+p, blockquote {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+blockquote {
+  border-left: 3px solid rgba(var(--base-color-rgb), .75);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 200;
+  line-height: 1.4;
+  margin: 2rem 0 2rem 1.5rem;
+  padding: 1rem 1rem 1rem 2rem;
+
+  @media (min-width: breakpoint-min(md)) {
+    border-left-width: 4px;
+    font-size: 1.8rem;
+    margin: 2.5rem 0 2.5rem 2rem;
+    padding: 1rem 3rem;
+  }
+}
+
+.sb-hr, hr {
+  display: block;
+  border: none;
+  margin: 3rem 0;
+  height: 2px;
+  background-color: rgba(var(--base-color-rgb), .75);
+
+  &.sb-hr--thin {
+    height: 1px;
+  }
+}
+
+.sb-link, a {
+  color: var(--link);
+  display: inline;
+  transition: filter 250ms;
+
+  &:focus {
+    @include base-focus;
+  }
+
+  &:hover {
+    filter: contrast(125%);
+  }
+}
+
+$btn-class: sb-button;
+button,
+input[type="button"],
+.#{$btn-class} {
+  background: var(--button-bkg);
+  border-radius: rem(3);
+  color: var(--button-color);
+  display: inline-block;
+  line-height: 1;
+  padding: .8rem 1.4rem;
+  transition: filter 250ms;
+
+  &:focus {
+    outline: 1px solid var(--button-color);
+    outline-offset: -4px;
+  }
+
+  &:hover {
+    filter: contrast(125%);
+  }
+
+  &.#{$btn-class}--info {
+    background: var(--button-bkg-info);
+  }
+}
