@@ -1,0 +1,20 @@
+{
+  "name": "@steveblack/interfaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prebuild": "rm -rf dist *.tsbuildinfo && cti create ./src",
+    "build": "tsc",
+    "start": "npm run build",
+    "clean": "rm -rf dist node_modules package-lock.json *.tsbuildinfo",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Steve Black <stevenjblack@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "create-ts-index": "^1.13.3",
+    "typescript": "^3.9.5"
+  }
+}
