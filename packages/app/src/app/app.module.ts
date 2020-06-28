@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './routes/test/test.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CardComponent } from './components/card/card.component';
+import { HeaderComponent } from './components/core/header/header.component';
+import { FooterComponent } from './components/core/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     SpinnerComponent,
-    CardComponent
+    CardComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

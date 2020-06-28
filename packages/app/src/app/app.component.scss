@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: 1fr;
+  height: 100vh;
+}
+
+.sb-app__main {
+  overflow-y: auto;
+  padding-top: 3rem;
+}
