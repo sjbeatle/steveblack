@@ -19,5 +19,5 @@ export class TestComponent {
   faCircle = faCircle;
   faFlag = faFlag;
 
-  constructor(private themeService: ThemeService) { }
+  constructor(public themeService: ThemeService) { }
 }
