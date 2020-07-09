@@ -9,3 +9,18 @@
   overflow-y: auto;
   padding-top: 3rem;
 }
+
+#color-contrast {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    flex-basis: 25%;
+    justify-content: center;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +7,7 @@ import { Component, HostBinding } from '@angular/core';
 })
 export class CardComponent {
   static className = 'sb-card';
-  @HostBinding(`class.invert-theme`) invertedTheme = true;
+  @HostBinding(`class.invert-theme`) invertTheme = true;
   @HostBinding(`class.${CardComponent.className}`) sbCard = true;
 
   constructor() { }

@@ -25,6 +25,21 @@ body {
   background: var(--selection-bkg);
 }
 
+.sb-link, a {
+  color: var(--link);
+  display: inline;
+  text-decoration: underline;
+  transition: filter 250ms;
+
+  &:focus {
+    @include base-focus;
+  }
+
+  &:hover {
+    filter: contrast(125%);
+  }
+}
+
 .sb-heading-1,
 .sb-heading-2,
 .sb-heading-3,
@@ -120,20 +135,6 @@ blockquote {
   }
 }
 
-.sb-link, a {
-  color: var(--link);
-  display: inline;
-  transition: filter 250ms;
-
-  &:focus {
-    @include base-focus;
-  }
-
-  &:hover {
-    filter: contrast(125%);
-  }
-}
-
 $btn-class: sb-button;
 button,
 input[type="button"],
@@ -169,12 +170,14 @@ input[type="button"],
     @include base-focus;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     filter: contrast(125%);
   }
 
   &.#{$btn-class}--info {
-    background: var(--button-bkg-info);
+    background: var(--base-color);
+    color: var(--base-bkg);
   }
 
   &.#{$btn-class}--icon {
@@ -192,4 +195,18 @@ input[type="button"],
 
 pre {
   overflow-x: scroll;
+}
+
+input,
+select,
+textarea {
+  background: var(--input-bkg);
+  color: var(--base-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--base-border);
+
+  &:focus {
+    @include base-focus;
+  }
 }

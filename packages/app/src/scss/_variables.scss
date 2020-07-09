@@ -7,41 +7,76 @@ $grid-breakpoints: (
 ) !default;
 
 :root,
-body.dark .invert-theme {
-  --base-color: #363436;
-  --base-color-rgb: 38, 38, 38;
+body.dark .invert-theme,
+body.light .invert-theme .invert-theme,
+body.dark .invert-theme .invert-theme .invert-theme {
+  /*------------------------------------*\
+    #CORE
+  \*------------------------------------*/
+  --base-color: #212121;
   --base-bkg: #F8F9F9;
+  --base-border: #909090;
+  --link: #7e57c2;
+  --base-color-rgb: 21, 21, 21;
   --base-bkg-rgb: 232, 233, 243;
   --base-focus: 2px dotted var(--link);
-  --base-border: #DFE0E0;
-  --link: #e58a49;
+  --selection-bkg: #b39ddb;
+  --pop-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.84), 0 4px 25px 0px rgba(0, 0, 0, 0.18), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
 
-  --header-bkg: #363436;
-  --header-color: #F8F9F9;
+  /*------------------------------------*\
+    #HEADER
+  \*------------------------------------*/
+  --header-bkg: var(--base-color);
+  --header-color: var(--base-bkg);
 
-  --button-color: #F8F9F9;
+  /*------------------------------------*\
+    #BUTTON
+  \*------------------------------------*/
+  --button-color: var(--base-bkg);
   --button-bkg: var(--link);
-  --button-bkg-info: #1c1c1c;
 
-  --spinner-color: var(--base-color);
+  /*------------------------------------*\
+    #FORMS
+  \*------------------------------------*/
+  --input-bkg: white;
 
-  --selection-bkg: #56BAC4;
-
-  --card-border: #DFE0E0;
-  --pop-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  /*------------------------------------*\
+    #C-CARD
+  \*------------------------------------*/
+  --card-border: #212121;
 }
 
 body.dark,
-body.light .invert-theme {
+body.light .invert-theme,
+body.dark .invert-theme .invert-theme,
+body.light .invert-theme .invert-theme .invert-theme {
+  /*------------------------------------*\
+    #CORE
+  \*------------------------------------*/
   --base-color: #F8F9F9;
+  --base-bkg: #212121;
+  --base-border: #6b6b6b;
+  --link: #a37ce8;
   --base-color-rgb: 232, 233, 243;
-  --base-bkg: #363436;
-  --base-bkg-rgb: 38, 38, 38;
-  --base-border: #2C2A2C;
+  --base-bkg-rgb: 21, 21, 21;
 
-  --button-color: #ffffff;
+  /*------------------------------------*\
+    #HEADER
+  \*------------------------------------*/
+  // N/A
 
-  --spinner-color: var(--base-color);
+  /*------------------------------------*\
+    #BUTTON
+  \*------------------------------------*/
+  // N/A
 
+  /*------------------------------------*\
+    #FORMS
+  \*------------------------------------*/
+  --input-bkg: #181818;
+
+  /*------------------------------------*\
+    #C-CARD
+  \*------------------------------------*/
   --card-border: #2C2A2C;
 }
