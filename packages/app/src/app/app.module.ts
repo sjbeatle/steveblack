@@ -12,6 +12,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/core/header/header.component';
 import { FooterComponent } from './components/core/footer/footer.component';
+import { DateInputComponent } from './components/date-input/date-input.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
     CardComponent,
     HeaderComponent,
     FooterComponent,
+    DateInputComponent,
   ],
   imports: [
     BrowserModule,

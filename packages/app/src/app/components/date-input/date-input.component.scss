@@ -1,0 +1,17 @@
+::ng-deep {
+  .sb-date-input {
+    display: inline-block;
+    position: relative;
+
+    input::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+}

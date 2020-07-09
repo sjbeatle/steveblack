@@ -138,6 +138,8 @@ blockquote {
 $btn-class: sb-button;
 button,
 input[type="button"],
+input[type="reset"],
+input[type="submit"],
 .#{$btn-class} {
   background: var(--button-bkg);
   border-radius: rem(3);
@@ -197,7 +199,22 @@ pre {
   overflow-x: scroll;
 }
 
-input,
+mark {
+  color: var(--base-color);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="week"],
+input[type="month"],
+input[type="time"],
+input[type="datetime-local"],
 select,
 textarea {
   background: var(--input-bkg);
