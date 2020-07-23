@@ -27,7 +27,7 @@ const dbConnect = () => {
     },
   )
     // tslint:disable-next-line:no-console
-    .then(() => console.log('DB Connected!'))
+    .then(() => console.log('DB Connected! 🎉'))
     // tslint:disable-next-line:no-console
     .catch((er: any) => console.log(`DB Connection Error 😩: ${er.message}`));
 };
