@@ -1,26 +1,15 @@
 :host {
   display: grid;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto 1fr auto;
 	grid-template-columns: 1fr;
   height: 100vh;
 }
 
-.sb-app__main {
-  overflow-y: auto;
-  padding-top: 3rem;
-}
-
-#color-contrast {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-
-  > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    flex-basis: 25%;
-    justify-content: center;
-  }
+.sb-header {
+  background-color: var(--header-bkg);
+  box-shadow: var(--pop-shadow);
+  color: var(--header-color);
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 }

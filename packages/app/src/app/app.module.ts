@@ -12,6 +12,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/core/header/header.component';
 import { FooterComponent } from './components/core/footer/footer.component';
+import { PerformancesComponent } from './routes/performances/performances.component';
+import { ContactComponent } from './routes/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FooterComponent } from './components/core/footer/footer.component';
     CardComponent,
     HeaderComponent,
     FooterComponent,
+    PerformancesComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

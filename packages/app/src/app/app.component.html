@@ -1,74 +1,9 @@
-<header>
+<header class="sb-header">
   <app-header></app-header>
 </header>
-<div class="sb-app__main">
-  <main>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <input
-            name="color-one"
-            [(ngModel)]="colorOne"
-            (blur)="calcContrast()"
-            (keyup.enter)="calcContrast()"
-            type="text"
-          />
-          <input
-            name="color-two"
-            [(ngModel)]="colorTwo"
-            (blur)="calcContrast()"
-            (keyup.enter)="calcContrast()"
-            type="text"
-          />
-          <input
-            name="color-three"
-            [(ngModel)]="colorThree"
-            (blur)="calcContrast()"
-            (keyup.enter)="calcContrast()"
-            type="text"
-          />
-          <div id="color-contrast">
-            <div></div>
-            <div
-              class="color-one"
-              [style.background]="'#' + colorOne"
-            >{{ colorOne }}</div>
-            <div
-              class="color-two"
-              [style.background]="'#' + colorTwo"
-            >{{ colorTwo }}</div>
-            <div
-              class="color-three"
-              [style.background]="'#' + colorThree"
-            >{{ colorThree }}</div>
-            <div
-              class="color-one"
-              [style.background]="'#' + colorOne"
-            >{{ colorOne }}</div>
-            <div>{{oneOne}}</div>
-            <div>{{oneTwo}}</div>
-            <div>{{oneThree}}</div>
-            <div
-              class="color-two"
-              [style.background]="'#' + colorTwo"
-            >{{ colorTwo }}</div>
-            <div>{{twoOne}}</div>
-            <div>{{twoTwo}}</div>
-            <div>{{twoThree}}</div>
-            <div
-              class="color-three"
-              [style.background]="'#' + colorThree"
-            >{{ colorThree }}</div>
-            <div>{{threeOne}}</div>
-            <div>{{threeTwo}}</div>
-            <div>{{threeThree}}</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <router-outlet></router-outlet>
-  </main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-</div>
+<main class="sb-main container-fluid">
+  <router-outlet></router-outlet>
+</main>
+<footer class="sb-footer">
+  <app-footer></app-footer>
+</footer>
