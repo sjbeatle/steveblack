@@ -5,5 +5,7 @@
 
 @mixin base-focus {
   outline: var(--base-focus);
-  outline-offset: 2px;
+  outline-offset: rem(2);
+  position: relative;
+  z-index: 1000;
 }
