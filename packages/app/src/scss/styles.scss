@@ -25,11 +25,30 @@ body {
   background: var(--selection-bkg);
 }
 
+.sb-link, a, u {
+  display: inline-block;
+  position: relative;
+
+  &::after {
+    border-bottom: 1px solid;
+    content: '';
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 1px;
+  }
+}
+
 .sb-link, a {
   color: var(--link);
-  display: inline;
-  text-decoration: underline;
   transition: filter 250ms;
+
+  &:focus,
+  &:hover {
+    &::after {
+      display: none;
+    }
+  }
 
   &:focus {
     @include base-focus;
@@ -121,6 +140,14 @@ blockquote {
     margin: 2.5rem 0 2.5rem 2rem;
     padding: 1rem 3rem;
   }
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+i, em {
+  font-style: italic;
 }
 
 .sb-hr, hr {
