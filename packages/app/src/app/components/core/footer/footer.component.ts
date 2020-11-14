@@ -6,7 +6,7 @@ import { Component, HostBinding } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  @HostBinding('class.container') container = true;
+  @HostBinding('class.container-fluid') container = true;
 
   constructor() { }
 }
