@@ -25,13 +25,7 @@ export class ThemeService {
 
   fetchTheme() {
     const theme = localStorage.getItem(this.lhKey);
-
-    if (!theme) {
-      this.theme = THEMES.light;
-      return;
-    }
-
-    this.theme = THEMES[theme];
+    this.theme = theme ? THEMES[theme] : THEMES.light;
   }
 
   toggleTheme() {
