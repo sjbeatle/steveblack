@@ -16,6 +16,10 @@
 /*------------------------------------*\
   #BASE
 \*------------------------------------*/
+html, body {
+  height: 100vh;
+}
+
 body {
   color: var(--base-color);
   background-color: var(--base-bkg);
