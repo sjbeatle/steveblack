@@ -7,8 +7,9 @@
 /*------------------------------------*\
   #Bootstrap Assist
 \*------------------------------------*/
-.container {
+.container-fluid {
   display: block;
+  max-width: 1440px;
 }
 
 
@@ -59,19 +60,27 @@ body {
   }
 }
 
+.sb-link--decorate-none {
+  &::after {
+    display: none;
+  }
+}
+
+.sb-secondary-font {
+  font-family: $secondary-font;
+}
+
 .sb-heading-1,
 .sb-heading-2,
 .sb-heading-3,
 .sb-heading-4,
 .sb-heading-5,
-.sb-heading-6,
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oswald', sans-serif;
+.sb-heading-6 {
+  font-family: $secondary-font;
   line-height: 1.2;
 }
 
-.sb-heading-1,
-h1 {
+.sb-heading-1 {
   font-size: 2.3rem;
   font-weight: 200;
   margin-bottom: 1.5rem;
@@ -81,8 +90,7 @@ h1 {
   }
 }
 
-.sb-heading-2,
-h2 {
+.sb-heading-2 {
   font-size: 1.9rem;
   font-weight: 200;
   margin-bottom: 1.5rem;
@@ -92,8 +100,7 @@ h2 {
   }
 }
 
-.sb-heading-3,
-h3 {
+.sb-heading-3 {
   font-size: 1.55rem;
   margin-bottom: 1.25rem;
 
@@ -102,20 +109,17 @@ h3 {
   }
 }
 
-.sb-heading-4,
-h4 {
+.sb-heading-4 {
   font-size: 1.4rem;
   margin-bottom: 1.25rem;
 }
 
-.sb-heading-5,
-h5 {
+.sb-heading-5 {
   font-size: 1.162rem;
   margin-bottom: 1rem;
 }
 
-.sb-heading-6,
-h6 {
+.sb-heading-6 {
   font-size: .938rem;
   margin-bottom: 1rem;
 }
@@ -213,6 +217,10 @@ input[type="submit"],
     height: 2em;
     width: 2em;
     padding: 0;
+
+    > * {
+      padding: 0;
+    }
   }
 
   &.#{$btn-class}--pill {
