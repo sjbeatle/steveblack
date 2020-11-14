@@ -1,5 +1,51 @@
-<div class="container">
-  <div class="row">
-    <div class="col">Hello World!</div>
+<div class="sb-header-container">
+  <h1 class="sb-header-container__title sb-secondary-font"><a [routerLink]="['']">Steve Black</a></h1>
+  <nav class="sb-header-container__nav" aria-label="Site Navigation">
+    <ul class="sb-header-main-nav">
+      <li><a [routerLink]="['performances']">Performances</a></li>
+      <li><a [routerLink]="['contact']">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="sb-header-container__action">
+    <nav role="list" aria-label="Social Media Navigation">
+      <a
+        role="listitem"
+        class="sb-header-media sb-link--decorate-none"
+        href="https://www.facebook.com/Steve-Black-121279740594" title="Facebook">
+        <fa-icon [icon]="faFacebook"></fa-icon>
+        <span class="sr-only">Facebook</span>
+      </a>
+      <a
+        role="listitem"
+        class="sb-header-media sb-link--decorate-none"
+        href="https://www.youtube.com/c/SteveBlackWeb/videos" title="YouTube">
+        <fa-icon [icon]="faYoutube"></fa-icon>
+        <span class="sr-only">YouTube</span>
+      </a>
+      <a
+        role="listitem"
+        class="sb-header-media sb-link--decorate-none"
+        href="https://www.venmo.com/steveblackmusic" title="Donate via Venmo">
+        <svg class="venmo-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 162 162" style="enable-background:new 0 0 162 162;" xml:space="preserve">
+          <path class="st0" d="M136.8,14.9c4.8,8,7,16.2,7,26.6c0,33.2-28.3,76.2-51.3,106.5H40L19,22.1l46-4.4l11.1,89.6
+            c10.4-16.9,23.2-43.6,23.2-61.7c0-9.9-1.7-16.7-4.4-22.3L136.8,14.9z"/>
+        </svg>
+        <span class="sr-only">Donate via Venmo</span>
+      </a>
+      <a
+        role="listitem"
+        class="sb-header-media sb-link--decorate-none"
+        href="https://paypal.me/steveblackmusic" title="Donate via Paypal">
+        <fa-icon [icon]="faPaypal"></fa-icon>
+        <span class="sr-only">Donate via Paypal</span>
+      </a>
+    </nav>
+    <button
+      class="sb-button--icon"
+      [title]="themeLabel"
+      (click)="themeService.toggleTheme()">
+      <fa-icon [icon]="faAdjust"></fa-icon>
+    </button>
   </div>
 </div>
