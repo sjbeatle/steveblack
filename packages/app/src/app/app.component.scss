@@ -13,3 +13,47 @@
   top: 0;
   z-index: 9999;
 }
+
+.sb-hero {
+  background-image: url('/assets/IMG_4596.JPG');
+  background-position: 0 83%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: var(--pop-shadow);
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  position: relative;
+
+  @media (min-width: 1000px) {
+    height: 30vw;
+  }
+
+  &__location,
+  &__credit {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    box-shadow: 0 0 25px 25px rgba(0,0,0,0.41);
+    color: #eee;
+    position: absolute;
+    left: 2rem;
+  }
+
+  &__location {
+    bottom: 1rem;
+    font-size: 1rem;
+
+    @media (min-width: 1000px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__credit {
+    bottom: 3rem;
+    font-size: .75rem;
+
+    @media (min-width: 1000px) {
+      font-size: 1rem;
+    }
+  }
+}
