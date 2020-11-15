@@ -14,6 +14,7 @@ import { HeaderComponent } from './components/core/header/header.component';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { PerformancesComponent } from './routes/performances/performances.component';
 import { ContactComponent } from './routes/contact/contact.component';
+import { HeroComponent } from './components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ContactComponent } from './routes/contact/contact.component';
     FooterComponent,
     PerformancesComponent,
     ContactComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
