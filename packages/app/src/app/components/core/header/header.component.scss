@@ -22,10 +22,11 @@ a {
     flex: 1 1 auto;
     font-size: 1.25rem;
     font-weight: normal;
+    font-family: 'Koho', sans-serif;
     text-transform: uppercase;
 
     @media (min-width: breakpoint-min(sm)) {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 
