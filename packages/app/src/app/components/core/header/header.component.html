@@ -1,10 +1,37 @@
 <div class="sb-header-container">
-  <h1 class="sb-header-container__title sb-secondary-font"><a [routerLink]="['']">Steve Black</a></h1>
+  <h1 class="sb-header-container__title sb-secondary-font">
+    <svg class="sb-header-container__title-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 2031">
+      <defs>
+        <style>
+          .cls-1, .cls-2, .cls-3 {
+            fill: none;
+            stroke: #7e57c2;
+          }
+
+          .cls-1 {
+            stroke-width: 40px;
+          }
+
+          .cls-1, .cls-2 {
+            fill-rule: evenodd;
+          }
+
+          .cls-2, .cls-3 {
+            stroke-width: 20px;
+          }
+        </style>
+      </defs>
+      <path id="Outer" class="cls-1" d="M835.108,1990.17C630.394,1990.17,35.846,1021.98,40,600S429.453,40,830,40c399.45,0,810,134.362,810,560S1039.82,1990.17,835.108,1990.17Z"/>
+      <path id="Inner" class="cls-2" d="M830.566,1899.75c-185.527,0-724.354-888.49-720.589-1275.724s352.953-513.9,715.96-513.9c362.013,0,734.083,123.3,734.083,513.9S1016.09,1899.75,830.566,1899.75Z"/>
+      <circle class="cls-3" cx="835" cy="765" r="498.75"/>
+    </svg>
+    <a class="sb-header-container__title-link sb-link--decorate-none" [routerLink]="['']">Steve Black</a>
+  </h1>
   <nav class="sb-header-container__nav" aria-label="Site Navigation">
-    <ul class="sb-header-main-nav">
-      <li><a [routerLink]="['performances']">Performances</a></li>
-      <li><a [routerLink]="['contact']">Contact</a></li>
-    </ul>
+    <!-- <ul class="sb-header-main-nav">
+      <li class="sb-header-main-nav__item"><a class="sb-link--decorate-none sb-header-main-nav__link" [routerLink]="['performances']">Performances</a></li>
+      <li class="sb-header-main-nav__item"><a class="sb-link--decorate-none sb-header-main-nav__link" [routerLink]="['contact']">Contact</a></li>
+    </ul> -->
   </nav>
   <div class="sb-header-container__action">
     <nav role="list" aria-label="Social Media Navigation">

@@ -8,7 +8,6 @@
   #Bootstrap Assist
 \*------------------------------------*/
 .container-fluid {
-  display: block;
   max-width: 1440px;
 }
 
@@ -62,11 +61,11 @@ body {
   &:hover {
     filter: contrast(125%);
   }
-}
 
-.sb-link--decorate-none {
-  &::after {
-    display: none;
+  &--decorate-none {
+    &::after {
+      display: none;
+    }
   }
 }
 
@@ -265,4 +264,8 @@ textarea {
   &:focus {
     @include base-focus;
   }
+}
+
+pre {
+  white-space: normal;
 }
