@@ -1,9 +1,13 @@
 :host {
-  display: block;
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  margin-left: -50vw;
+  display: none;
+
+  @media (min-width: 320px) {
+    display: block;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+  }
 }
 
 .sb-hero {
@@ -14,7 +18,6 @@
   box-shadow: var(--pop-shadow);
   height: 300px;
   overflow: hidden;
-  margin-bottom: 3rem;
   position: relative;
 
   @media (min-width: 1000px) {
@@ -23,12 +26,10 @@
 
   &__location,
   &__credit {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 5px;
-    box-shadow: 0 0 25px 25px rgba(0,0,0,0.41);
     color: #eee;
-    position: absolute;
     left: 2rem;
+    position: absolute;
+    text-shadow: 1px 1px 3px black;
   }
 
   &__location {
