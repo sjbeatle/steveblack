@@ -9,6 +9,8 @@ export class CardComponent {
   static className = 'sb-card';
   @HostBinding(`class.invert-theme`) invertTheme = true;
   @HostBinding(`class.${CardComponent.className}`) sbCard = true;
+  @HostBinding(`class.sb-card--full-height`) @Input() fullHeight = false;
+
 
   constructor() { }
 }

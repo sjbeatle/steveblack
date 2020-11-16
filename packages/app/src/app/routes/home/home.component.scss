@@ -1,0 +1,16 @@
+.sb-gigs {
+  overflow-x: auto;
+
+  &__month {
+    background: var(--base-bkg);
+    position: sticky;
+    top: 0;
+    padding: .25rem;
+    border-bottom: 1px solid var(--base-border);
+  }
+
+  &__end {
+    text-align: center;
+    padding-top: 3rem;
+  }
+}

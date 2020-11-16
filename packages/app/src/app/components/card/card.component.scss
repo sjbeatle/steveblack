@@ -1,7 +1,13 @@
-:host {
+$card: sb-card;
+
+:host(.#{$card}) {
   background: var(--base-bkg);
   border-radius: .33rem;
   box-shadow: var(--pop-shadow);
   color: var(--base-color);
   display: block;
+  padding: 1rem;
+}
+:host(.#{$card}--full-height) {
+  min-height: 100%;
 }
