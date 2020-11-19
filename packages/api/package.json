@@ -4,12 +4,12 @@
   "description": "Official API for steveblackonline.com",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/app.js",
+    "start": "node dist/server.js",
     "build": "rm -rf dist && tsc",
     "clean": "rm -rf package-lock.json dist node_modules",
     "clean-dist": "rm -rf dist",
     "clean:install:build": "npm run clean && npm i && npm run build",
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -24,6 +24,7 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
+    "@steveblack/interfaces": "^1.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.20"
