@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './routes/home/home.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { PerformancesListComponent } from './components/performances-list/performances-list.component';
 import { CardComponent } from './components/card/card.component';
 import { HeaderComponent } from './components/core/header/header.component';
 import { FooterComponent } from './components/core/footer/footer.component';
@@ -27,6 +28,7 @@ import { HeroComponent } from './components/hero/hero.component';
     PerformancesComponent,
     ContactComponent,
     HeroComponent,
+    PerformancesListComponent,
   ],
   imports: [
     BrowserModule,

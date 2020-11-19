@@ -5,44 +5,7 @@
 <div class="row">
   <div class="col-lg mb-5">
     <h2 class="sb-heading-2">Performances</h2>
-    <div class="sb-gigs">
-      <h3 class="sb-gigs__month sb-heading-3">November</h3>
-      <ul>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-      </ul>
-      <h3 class="sb-gigs__month sb-heading-3">December</h3>
-      <ul>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-      </ul>
-      <h3 class="sb-gigs__month sb-heading-3">January</h3>
-      <ul>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-      </ul>
-      <h3 class="sb-gigs__month sb-heading-3">February</h3>
-      <ul>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-      </ul>
-      <h3 class="sb-gigs__month sb-heading-3">March</h3>
-      <ul>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-        <li>Magnanini Winery</li>
-      </ul>
-      <div class="sb-gigs__end"><strong>--END--</strong></div>
-    </div>
+    <app-performances-list></app-performances-list>
   </div>
   <div class="col-lg mb-5">
     <app-card fullHeight="true">
@@ -54,6 +17,12 @@
 <div class="row">
   <div class="col-lg mb-5">
     <h2 class="sb-heading-2">Songlist</h2>
+    <app-spinner *ngIf="isFetching; else songs"></app-spinner>
+    <ul #songs>
+      <li *ngFor="let cover of covers;">
+        {{ cover.artist }}
+      </li>
+    </ul>
   </div>
   <div class="col-lg mb-5">
     <app-card fullHeight="true">
