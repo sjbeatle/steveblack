@@ -1,0 +1,90 @@
+:host {
+  display: block;
+}
+
+$root: sb-songlist;
+.#{$root} {
+  &__wrap {
+    margin-top: 1.5rem;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  &__artist-wrap,
+  &__song {
+    padding: .25rem;
+  }
+
+  &__song {
+    margin-top: .25rem;
+
+    &:first-of-type {
+      margin-top: .5rem;
+    }
+  }
+
+  &__count {
+    text-align: center;
+    background: rgba(var(--light-bkg-rgb), 0.5);
+    padding:.25em;
+  }
+
+  a[name] {
+    display:block;
+    height: 0;
+    width: 0;
+  }
+
+  &__delete-artist,
+  &__delete-song {
+    display: none;
+  }
+}
+
+.#{$root}--interactive {
+  .#{$root} {
+    &__wrap {
+      position: relative;
+    }
+
+    &__delete-artist,
+    &__delete-song {
+      display: inherit;
+      opacity: 0;
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translate(0, -50%);
+      transition: opacity 100ms;
+
+      &:focus {
+        opacity: 1;
+      }
+    }
+
+    &__delete-artist {
+      transform: translate(0, -50%);
+    }
+
+    &__delete-song {
+      transform: translate(0, -50%) scale(.6);
+    }
+
+    &__artist-wrap,
+    &__song {
+      position: relative;
+
+      &:hover,
+      &:focus {
+        background: rgba(var(--light-bkg-rgb), 1);
+
+        .#{$root}__delete-artist,
+        .#{$root}__delete-song {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

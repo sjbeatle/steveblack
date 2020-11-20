@@ -1,0 +1,36 @@
+<section class="sb-songlist" [class.sb-songlist--interactive]="interactive" aria-label="Song List">
+  <a name="top"></a>
+  <div *ngIf="showCount" class="sb-songlist__count sb-heading-3 mb-3">{{ songCount }} Songs</div>
+  <article class="sb-songlist__wrap" *ngFor="let artist of covers; index as i;" [attr.aria-labelledby]="artist.artist.toLowerCase().split(' ').join('-') + '-' + i">
+    <a [name]="artist.artist[0].toUpperCase()"></a>
+    <div class="sb-songlist__artist-wrap">
+      <h3 [id]="artist.artist.toLowerCase().split(' ').join('-') + '-' + i" class="sb-songlist__artist sb-heading-2 mb-0">{{ artist.artist }}</h3>
+      <button
+        class="sb-songlist__delete-artist sb-button--icon"
+        [title]="'Delete ' + artist.artist"
+        (click)="deleteArtist(artist._id)"
+      >
+        <span class="sr-only">Delete {{ artist.artist }}</span>
+        <fa-icon
+          [icon]="faTimes"
+        ></fa-icon>
+      </button>
+    </div>
+    <div class="sb-hr sb-hr--thin sb-hr--close sb-hr--lighter"></div>
+    <ul>
+      <li class="sb-songlist__song" *ngFor="let song of artist.songs;">
+        {{ song }}
+        <button
+          class="sb-songlist__delete-song sb-button--icon"
+          [title]="'Delete ' + song"
+          (click)="deleteSong(artist._id, song)"
+        >
+          <span class="sr-only">Delete {{ song }}</span>
+          <fa-icon
+            [icon]="faTimes"
+          ></fa-icon>
+        </button>
+      </li>
+    </ul>
+  </article>
+</section>
