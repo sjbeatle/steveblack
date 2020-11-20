@@ -17,6 +17,7 @@ import { PerformancesComponent } from './routes/performances/performances.compon
 import { ContactComponent } from './routes/contact/contact.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AdminComponent } from './routes/admin/admin.component';
+import { SongListComponent } from './components/song-list/song-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AdminComponent } from './routes/admin/admin.component';
     HeroComponent,
     PerformancesListComponent,
     AdminComponent,
+    SongListComponent,
   ],
   imports: [
     BrowserModule,

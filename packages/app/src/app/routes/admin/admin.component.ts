@@ -1,3 +1,4 @@
+import { ICovers } from '@steveblack/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { CoversService } from 'src/app/services/covers.service';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -14,6 +15,15 @@ export class AdminComponent implements OnInit {
   });
   alphabet = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
   isFetching = true;
+  covers: ICovers[];
+
+  get songCount() {
+    let count = 0;
+    this.coversService.covers.forEach((a: ICovers) => {
+      count += a.songs.length;
+    });
+    return count;
+  }
 
   constructor(public coversService: CoversService, private fb: FormBuilder) { }
 
@@ -36,7 +46,7 @@ export class AdminComponent implements OnInit {
       });
   }
 
-  deleteSong(id: string, song: string) {
+  deleteSong({id, song}) {
     this.isFetching = true;
     this.coversService.deleteSong(id, song)
       .subscribe(() => {
@@ -47,6 +57,7 @@ export class AdminComponent implements OnInit {
   onSubmit() {
     const { artist, song } = this.songForm.value;
     let artistId = '';
+    this.isFetching = true;
     this.coversService.covers.some((cover) => {
       if (cover.artist === artist) {
         // @ts-ignore
@@ -55,19 +66,15 @@ export class AdminComponent implements OnInit {
       }
     });
 
-    this.isFetching = true;
     if (artistId) {
       this.coversService.addSong(artistId, song)
         .subscribe(() => {
           this.getCovers();
         });
     } else {
-      this.coversService.addArtist(artist)
+      this.coversService.addArtistWithSong(artist, song)
         .subscribe((res: any) => {
-          this.coversService.addSong(res._id, song)
-          .subscribe(() => {
-            this.getCovers();
-          });
+          this.getCovers();
         });
     }
   }

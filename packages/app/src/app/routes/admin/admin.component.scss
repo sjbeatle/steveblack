@@ -2,23 +2,27 @@ $top-pad: 3rem;
 .sb-add-song {
   margin-top: 3rem;
 
+  &__spinner {
+    position: sticky;
+    top: $top-pad;
+    right: 0;
+    left: 0;
+  }
+
   &__songlist {
-    color: #333;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(var(--light-bkg-rgb), 0.7);
     position: absolute;
-    width: 220px;
-    top:4rem;
+    width: 250px;
+    top: 4rem;
     bottom:0;
     right:0;
     overflow: scroll;
-    padding: 0 1rem 1rem 1rem;
+    padding: $top-pad 1rem 1rem 1rem;
     border-left: 1px solid rgba(0,0,0,.1);
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,.2);
 
-    h2:hover,
-    p:hover {
-      cursor: pointer;
-      background: rgba(255,255,255,0.5);
+    &--hide {
+      opacity: 0;
     }
   }
 
@@ -49,24 +53,4 @@ $top-pad: 3rem;
     width: 2rem;
     height: 2rem;
   }
-}
-
-#song_count {
-  text-align: center;
-  font-size:2em;
-  background: rgba(255,255,255,0.5);
-  padding:.25em;
-}
-span.fa-circle {
-  display: block;
-  text-align: center;
-  font-size: 0.5em;
-  padding:2em;
-  margin-top:.25em;
-}
-
-a[name] {
-  display: block;
-  height: 0;
-  width: 0;
 }

@@ -19,6 +19,7 @@ body.dark .invert-theme .invert-theme .invert-theme {
   --link: #7e57c2;
   --base-color-rgb: 21, 21, 21;
   --base-bkg-rgb: 232, 233, 243;
+  --light-bkg-rgb: 255, 255, 255;
   --base-focus: 2px dotted var(--link);
   --selection-bkg: #b39ddb;
   --pop-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.84), 0 4px 25px 0px rgba(0, 0, 0, 0.18), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
@@ -60,6 +61,7 @@ body.light .invert-theme .invert-theme .invert-theme {
   --link: #a37ce8;
   --base-color-rgb: 232, 233, 243;
   --base-bkg-rgb: 21, 21, 21;
+  --light-bkg-rgb: 0, 0, 0;
 
   /*------------------------------------*\
     #HEADER

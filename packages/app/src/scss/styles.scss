@@ -173,6 +173,18 @@ i, em {
   &.sb-hr--thin {
     height: 1px;
   }
+
+  &.sb-hr--close {
+    margin: .25rem 0;
+  }
+
+  &.sb-hr--light {
+    opacity: .5;
+  }
+
+  &.sb-hr--lighter {
+    opacity: .25;
+  }
 }
 
 $btn-class: sb-button;

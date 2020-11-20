@@ -1,24 +1,5 @@
 <form class="sb-add-song" [formGroup]="songForm" (ngSubmit)="onSubmit()">
   <h2 class="sb-add-song__title sb-heading-1">Add Song</h2>
-  <div class="sb-add-song__alphalist">
-    <a class="sb-add-song__alphalist-link sb-link--decorate-none" href="admin#top">#</a>
-    <a class="sb-add-song__alphalist-link sb-link--decorate-none" *ngFor="let letter of alphabet" [href]="'admin#' + letter">{{ letter }}</a>
-  </div>
-  <div class="sb-add-song__songlist">
-    <a name="top"></a>
-    <app-spinner *ngIf="isFetching; else songlist"></app-spinner>
-    <ng-template #songlist>
-      <section *ngFor="let artist of coversService.covers;">
-        <a [name]="coversService.removeArticles(artist.artist)[0].toUpperCase()"></a>
-        <div class="pt-5">
-          <h3 class="sb-add-song__songlist-artist sb-heading-2" (click)="deleteArtist(artist._id)">{{ artist.artist }}</h3>
-          <ul>
-            <li *ngFor="let song of artist.songs;" (click)="deleteSong(artist._id, song)">{{ song }}</li>
-          </ul>
-        </div>
-      </section>
-    </ng-template>
-  </div>
   <div>
     <label for="artist" class="required">Artist Name</label>
     <input type="text" placeholder="Artist Name" name="artist" id="artist" autocomplete="off" formControlName="artist" list="coversArtists" data-columns="foobar" />
@@ -31,4 +12,21 @@
     <input type="text" placeholder="Song Title" name="song" id="song" autocomplete="off" formControlName="song" required>
   </div>
   <button type="submit" [disabled]="!songForm.valid">Add Song</button>
+  <button type="reset">Clear</button>
 </form>
+
+<div class="sb-add-song__alphalist">
+  <a class="sb-add-song__alphalist-link sb-link--decorate-none" href="admin#top">#</a>
+  <a class="sb-add-song__alphalist-link sb-link--decorate-none" *ngFor="let letter of alphabet" [href]="'admin#' + letter">{{ letter }}</a>
+</div>
+<div class="sb-add-song__songlist">
+  <app-spinner class="sb-add-song__spinner" *ngIf="isFetching"></app-spinner>
+  <app-song-list
+    [class.sb-add-song__songlist--hide]="isFetching"
+    [covers]="coversService.covers"
+    showCount="true"
+    interactive="true"
+    (artist)="deleteArtist($event)"
+    (song)="deleteSong($event)"
+  ></app-song-list>
+</div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { last, catchError } from 'rxjs/operators';
 import { ICovers } from '@steveblack/interfaces';
@@ -56,6 +56,16 @@ export class CoversService {
       .pipe(
         catchError(() => {
           const message = 'Error adding artist for ' + artist;
+          return throwError(message);
+        }),
+      );
+  }
+
+  addArtistWithSong(artist: string, song: string) {
+    return this.http.post(`http://localhost:5000/covers/`, { artist, song })
+      .pipe(
+        catchError(() => {
+          const message = `Error adding artist and song for artist: ${artist}; song: ${song}`;
           return throwError(message);
         }),
       );
