@@ -3,10 +3,10 @@ import { Covers } from '../db';
 
 export async function CoversPostArtistController(req: Request, res: Response) {
   try {
-    const { artist } = req.body;
+    const { artist, song } = req.body;
     const covers = new Covers({
       artist,
-      songs: [],
+      songs: song ? [song] : [],
     });
     const result = await covers.save();
     res.send(result);
