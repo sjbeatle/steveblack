@@ -16,6 +16,7 @@ import { FooterComponent } from './components/core/footer/footer.component';
 import { PerformancesComponent } from './routes/performances/performances.component';
 import { ContactComponent } from './routes/contact/contact.component';
 import { HeroComponent } from './components/hero/hero.component';
+import { AdminComponent } from './routes/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HeroComponent } from './components/hero/hero.component';
     ContactComponent,
     HeroComponent,
     PerformancesListComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

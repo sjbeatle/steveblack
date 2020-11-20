@@ -46,7 +46,16 @@ export class CoversService {
     return this.http.get<ICovers[]>(config.endpoint)
       .pipe(
         last((covers) => {
-          this.covers = covers;
+          const sortCovers = covers.sort((a, b) => this.removeArticles(a.artist).localeCompare(this.removeArticles(b.artist)));
+
+          sortCovers.forEach(a => {
+            if (a.songs && a.songs.length) {
+              a.songs = a.songs.sort((c, d) => this.removeArticles(c).localeCompare(this.removeArticles(d)));
+            }
+          });
+
+          this.covers = sortCovers;
+
           return true;
         }),
         catchError(() => {
@@ -134,4 +143,19 @@ export class CoversService {
 
   //   return this.updateTodo(todo);
   // }
+
+  removeArticles(s: string): string {
+    const words = s.split(' ');
+    const articles = [
+      'a',
+      'an',
+      'the',
+    ];
+
+    if (words.length > 1 && articles.includes(words[0].toLowerCase())) {
+      return words.splice(1).join(' ');
+    }
+
+    return s;
+  }
 }

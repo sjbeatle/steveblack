@@ -25,6 +25,12 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+body.admin {
+  background-image: url('/assets/songs_bkg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 ::selection {
   background: var(--selection-bkg);
 }
