@@ -41,8 +41,8 @@ $top-pad: 3rem;
     a {
       display: block;
       padding:.2em;
-      color:#fff;
-      text-shadow: 1px 1px 1px rgba(0,0,0,1);
+      color: var(--base-color);
+      text-shadow: 1px 1px 1px rgba(var(--base-bkg-rgb), 1);
       text-decoration: none;
     }
   }

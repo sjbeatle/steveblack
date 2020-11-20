@@ -29,6 +29,10 @@ body.admin {
   background-image: url('/assets/songs_bkg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+
+  &.dark {
+    box-shadow: inset 0 0 0 50vh rgba(var(--base-bkg-rgb), .9);
+  }
 }
 
 ::selection {
