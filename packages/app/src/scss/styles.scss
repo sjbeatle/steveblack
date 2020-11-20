@@ -208,6 +208,11 @@ input[type="submit"],
   position: relative;
   transition: filter 250ms, top 250ms;
 
+  &[disabled],
+  &:disabled {
+    opacity: .5;
+  }
+
   > * {
     padding: 0 .5rem;
 
