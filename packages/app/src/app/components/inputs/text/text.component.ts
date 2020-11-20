@@ -24,7 +24,6 @@ export class TextComponent implements OnInit {
 
   constructor() {
     TextComponent.TextComponentCounter++;
-    console.log('>> TESTING >> TextComponent.TextComponentCounter', TextComponent.TextComponentCounter);
   }
 
   ngOnInit(): void {
