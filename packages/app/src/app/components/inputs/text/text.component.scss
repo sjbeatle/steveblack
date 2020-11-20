@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+$root: input-text;
+.#{$root} {
+  margin-top: 1rem;
+
+  &__label {
+    display: block;
+  }
+
+  &__input {
+
+  }
+}
+
+.#{$root}--required {
+  .#{$root} {
+    &__required-icon {
+      color: var(--required-color);
+    }
+  }
+}

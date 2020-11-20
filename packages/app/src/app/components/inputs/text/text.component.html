@@ -1,0 +1,27 @@
+<div class="input-text" [class.input-text--required]="required" [formGroup]="group">
+  <label
+    class="input-text__label"
+    [for]="forId"
+  >
+    {{ label }}
+    <fa-icon *ngIf="required"
+      class="input-text__required-icon"
+      [icon]="faAsterisk"
+    ></fa-icon>
+  </label>
+  <input
+    class="input-text__input"
+    type="text"
+    [attr.placeholder]="placeholder"
+    [name]="name"
+    [id]="forId"
+    [autocomplete]="autocomplete"
+    list="coversArtists"
+    [attr.required]="required"
+    [attr.list]="list ? listId : null"
+    [formControlName]="controlName"
+  />
+  <datalist *ngIf="list" [id]="listId">
+    <option *ngFor="let item of list">{{ item }}</option>
+  </datalist>
+</div>

@@ -25,6 +25,12 @@ export class AdminComponent implements OnInit {
     return count;
   }
 
+  get artists() {
+    const artists = [];
+    this.coversService.covers.forEach(a => artists.push(a.artist));
+    return artists;
+  }
+
   constructor(public coversService: CoversService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -33,7 +39,8 @@ export class AdminComponent implements OnInit {
 
   getCovers() {
     this.coversService.getCovers()
-      .subscribe(() => {
+      .subscribe((covers) => {
+        this.covers = covers;
         this.isFetching = false;
       });
   }

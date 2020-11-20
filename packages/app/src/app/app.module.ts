@@ -18,6 +18,7 @@ import { ContactComponent } from './routes/contact/contact.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AdminComponent } from './routes/admin/admin.component';
 import { SongListComponent } from './components/song-list/song-list.component';
+import { TextComponent } from './components/inputs/text/text.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SongListComponent } from './components/song-list/song-list.component';
     PerformancesListComponent,
     AdminComponent,
     SongListComponent,
+    TextComponent,
   ],
   imports: [
     BrowserModule,
