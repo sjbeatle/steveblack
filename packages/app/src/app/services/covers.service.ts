@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { last, catchError, map } from 'rxjs/operators';
+import { last, catchError } from 'rxjs/operators';
 import { ICovers } from '@steveblack/interfaces';
 
 const config = {
@@ -41,6 +41,25 @@ export class CoversService {
   //       }),
   //     );
   // }
+  addSong(artistId: string, song: string) {
+    return this.http.put(`http://localhost:5000/covers/${artistId}/song`, { song })
+      .pipe(
+        catchError(() => {
+          const message = 'Error adding song for ' + artistId;
+          return throwError(message);
+        }),
+      );
+  }
+
+  addArtist(artist: string) {
+    return this.http.post(`http://localhost:5000/covers/`, { artist })
+      .pipe(
+        catchError(() => {
+          const message = 'Error adding artist for ' + artist;
+          return throwError(message);
+        }),
+      );
+  }
 
   getCovers(): Observable<ICovers[]> {
     return this.http.get<ICovers[]>(config.endpoint)
@@ -65,22 +84,25 @@ export class CoversService {
       );
   }
 
-  // deleteTodos(): Observable<any> {
-  //   this.logger.log('Deleting ALL todos ...');
-  //   return this.http.delete(config.endpoint)
-  //     .pipe(
-  //       last(() => {
-  //         this.messageService.add('Delete all success!', 'success');
-  //         this.covers = [];
-  //         return true;
-  //       }),
-  //       catchError(() => {
-  //         const message = 'Delete all error!';
-  //         this.messageService.add(message, 'error');
-  //         return throwError(message);
-  //       }),
-  //     );
-  // }
+  deleteSong(artistId: string, song: string): Observable<any> {
+    return this.http.delete(`http://localhost:5000/covers/${artistId}/song/${encodeURIComponent(song)}`)
+      .pipe(
+        catchError(() => {
+          const message = `Delete song error! Song:${song} Artist ID: ${artistId} `;
+          return throwError(message);
+        }),
+      );
+  }
+
+  deleteArtist(artistId: string): Observable<any> {
+    return this.http.delete(`http://localhost:5000/covers/${artistId}`)
+      .pipe(
+        catchError(() => {
+          const message = `Delete artist error! Artist ID: ${artistId} `;
+          return throwError(message);
+        }),
+      );
+  }
 
   // deleteTodo(id: string): Observable<any> {
   //   this.logger.log(`Deleting todo: ${id} ...`);

@@ -1,4 +1,4 @@
-<form class="sb-add-song" action="javascript:;">
+<form class="sb-add-song" [formGroup]="songForm" (ngSubmit)="onSubmit()">
   <h2 class="sb-add-song__title sb-heading-1">Add Song</h2>
   <div class="sb-add-song__alphalist">
     <a class="sb-add-song__alphalist-link sb-link--decorate-none" href="admin#top">#</a>
@@ -7,34 +7,28 @@
   <div class="sb-add-song__songlist">
     <a name="top"></a>
     <app-spinner *ngIf="isFetching; else songlist"></app-spinner>
-    <ng-container #songlist>
+    <ng-template #songlist>
       <section *ngFor="let artist of coversService.covers;">
         <a [name]="coversService.removeArticles(artist.artist)[0].toUpperCase()"></a>
         <div class="pt-5">
-          <h3 class="sb-add-song__songlist-artist sb-heading-2">{{ artist.artist }}</h3>
+          <h3 class="sb-add-song__songlist-artist sb-heading-2" (click)="deleteArtist(artist._id)">{{ artist.artist }}</h3>
           <ul>
-            <li *ngFor="let song of artist.songs;">{{ song }}</li>
+            <li *ngFor="let song of artist.songs;" (click)="deleteSong(artist._id, song)">{{ song }}</li>
           </ul>
         </div>
       </section>
-    </ng-container>
+    </ng-template>
   </div>
-  <div class="pure-control-group">
-    <label for="artist_id" class="required">Artist</label>
-    <select name="artist_id" id="artist_id">
-      <option value="">-- Select Artist --</option>
-      <option value="">-- Add Artist --</option>
-    </select>
-  </div>
-  <div id="add_artist" style="display:none;" class="pure-control-group">
+  <div>
     <label for="artist" class="required">Artist Name</label>
-    <input type="text" placeholder="Artist Name" name="artist" id="artist" autocomplete="off">
+    <input type="text" placeholder="Artist Name" name="artist" id="artist" autocomplete="off" formControlName="artist" list="coversArtists" data-columns="foobar" />
+    <datalist id="coversArtists">
+      <option *ngFor="let cover of coversService.covers;">{{ cover.artist }}</option>
+    </datalist>
   </div>
-  <div class="pure-control-group">
+  <div>
     <label for="song" class="required">Song</label>
-    <input type="text" placeholder="Song Title" name="song" id="song" autocomplete="off">
+    <input type="text" placeholder="Song Title" name="song" id="song" autocomplete="off" formControlName="song" required>
   </div>
-  <div class="pure-controls">
-    <button type="submit" onclick="addSong();" class="pure-button pure-button-primary">Add Song</button>
-  </div>
+  <button type="submit" [disabled]="!songForm.valid">Add Song</button>
 </form>

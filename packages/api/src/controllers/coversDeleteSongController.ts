@@ -5,7 +5,7 @@ export async function CoversDeleteSongController(req: Request, res: Response) {
   try {
     const covers = await Covers.findById(req.params.id).exec();
     if (covers) {
-      const { song } = req.body;
+      const song = decodeURIComponent(req.params.song);
       covers.songs = covers.songs.filter((s) => s !== song);
       const result = await covers.save();
       res.send(result);

@@ -21,7 +21,7 @@ export const initRoutes = (server: Express): Express => {
   server.delete('/covers/:id', CoversDeleteArtistController);
   server.get('/covers/:id/song', CoversGetSongController);
   server.put('/covers/:id/song', CoversPutSongController);
-  server.delete('/covers/:id/song', CoversDeleteSongController);
+  server.delete('/covers/:id/song/:song', CoversDeleteSongController);
 
   return server;
 };
