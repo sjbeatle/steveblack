@@ -1,3 +1,9 @@
+::ng-deep {
+  .admin footer {
+    display: none;
+  }
+}
+
 $top-pad: 3rem;
 .sb-add-song {
   margin-top: 3rem;
