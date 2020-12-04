@@ -296,3 +296,10 @@ textarea {
 pre {
   white-space: normal;
 }
+
+.sb-text-ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

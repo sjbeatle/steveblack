@@ -19,6 +19,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { AdminComponent } from './routes/admin/admin.component';
 import { SongListComponent } from './components/song-list/song-list.component';
 import { TextComponent } from './components/inputs/text/text.component';
+import { EllipsifyMeDirective } from './ellipsify-me.directive';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TextComponent } from './components/inputs/text/text.component';
     AdminComponent,
     SongListComponent,
     TextComponent,
+    EllipsifyMeDirective,
   ],
   imports: [
     BrowserModule,
