@@ -20,6 +20,7 @@ import { AdminComponent } from './routes/admin/admin.component';
 import { SongListComponent } from './components/song-list/song-list.component';
 import { TextComponent } from './components/inputs/text/text.component';
 import { EllipsifyMeDirective } from './ellipsify-me.directive';
+import { AlphaListComponent } from './components/alpha-list/alpha-list.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EllipsifyMeDirective } from './ellipsify-me.directive';
     SongListComponent,
     TextComponent,
     EllipsifyMeDirective,
+    AlphaListComponent,
   ],
   imports: [
     BrowserModule,

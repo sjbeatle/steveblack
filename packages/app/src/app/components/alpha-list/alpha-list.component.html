@@ -1,0 +1,2 @@
+<a *ngIf="showTop" class="sb-alphalist-link sb-link--decorate-none" [href]="(currentRoute | async) + '#top'">#</a>
+<a class="sb-alphalist-link sb-link--decorate-none" *ngFor="let letter of alphabet" [href]="(currentRoute | async) + '#' + letter" [class.sb-alphalist-link--disabled]="!showLetters.includes(letter)">{{ letter }}</a>
