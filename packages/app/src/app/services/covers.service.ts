@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { last, catchError } from 'rxjs/operators';
 import { ICovers } from '@steveblack/interfaces';
@@ -14,6 +14,21 @@ const config = {
 // @ts-ignore
 export class CoversService {
   covers: ICovers[] = [];
+
+  static removeArticles(s: string): string {
+    const words = s.split(' ');
+    const articles = [
+      'a',
+      'an',
+      'the',
+    ];
+
+    if (words.length > 1 && articles.includes(words[0].toLowerCase())) {
+      return words.splice(1).join(' ');
+    }
+
+    return s;
+  }
 
   constructor(
     private http: HttpClient,
@@ -75,11 +90,13 @@ export class CoversService {
     return this.http.get<ICovers[]>(config.endpoint)
       .pipe(
         last((covers) => {
-          const sortCovers = covers.sort((a, b) => this.removeArticles(a.artist).localeCompare(this.removeArticles(b.artist)));
+          const sortCovers = covers.sort(
+            (a, b) => CoversService.removeArticles(a.artist).localeCompare(CoversService.removeArticles(b.artist)),
+          );
 
           sortCovers.forEach(a => {
             if (a.songs && a.songs.length) {
-              a.songs = a.songs.sort((c, d) => this.removeArticles(c).localeCompare(this.removeArticles(d)));
+              a.songs = a.songs.sort((c, d) => CoversService.removeArticles(c).localeCompare(CoversService.removeArticles(d)));
             }
           });
 
@@ -175,19 +192,4 @@ export class CoversService {
 
   //   return this.updateTodo(todo);
   // }
-
-  removeArticles(s: string): string {
-    const words = s.split(' ');
-    const articles = [
-      'a',
-      'an',
-      'the',
-    ];
-
-    if (words.length > 1 && articles.includes(words[0].toLowerCase())) {
-      return words.splice(1).join(' ');
-    }
-
-    return s;
-  }
 }
