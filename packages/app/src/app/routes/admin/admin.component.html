@@ -23,10 +23,7 @@
   </div>
 </form>
 
-<div class="sb-add-song__alphalist">
-  <a class="sb-add-song__alphalist-link sb-link--decorate-none" href="admin#top">#</a>
-  <a class="sb-add-song__alphalist-link sb-link--decorate-none" *ngFor="let letter of alphabet" [href]="'admin#' + letter">{{ letter }}</a>
-</div>
+<app-alpha-list class="sb-add-song-alpha-list" [showTop]="true"></app-alpha-list>
 <div class="sb-add-song__songlist">
   <app-spinner class="sb-add-song__spinner" *ngIf="isFetching"></app-spinner>
   <app-song-list

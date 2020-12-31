@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   faFlag = faFlag;
   covers: ICovers[] = [];
   isFetching = true;
+  letters = [];
 
   constructor(
     public coversService: CoversService
@@ -33,7 +34,14 @@ export class HomeComponent implements OnInit {
         setTimeout(() => {
           this.covers = covers;
           this.isFetching = false;
+
+          const artists = new Set(this.covers.map(c => {
+            return CoversService.removeArticles(c.artist)[0];
+          }));
+          this.letters = Array.from(artists);
         }, 1000);
       });
   }
+
+
 }

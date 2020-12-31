@@ -32,7 +32,7 @@ $top-pad: 3rem;
     }
   }
 
-  &__alphalist {
+  &-alpha-list {
     position: absolute;
     right:250px;
     top:4rem;
@@ -44,19 +44,18 @@ $top-pad: 3rem;
       display: none;
     }
 
-    a {
-      display: block;
-      padding:.2em;
-      color: var(--base-color);
-      text-shadow: 1px 1px 1px rgba(var(--base-bkg-rgb), 1);
-      text-decoration: none;
+    ::ng-deep {
+      .sb-alphalist-link {
+        display: block;
+        padding:.2em;
+        color: var(--base-color);
+        text-shadow: 1px 1px 1px rgba(var(--base-bkg-rgb), 1);
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.2rem;
+        width: 2rem;
+        height: 2rem;
+      }
     }
-  }
-
-  &__alphalist-link {
-    text-align: center;
-    font-size: 1.2rem;
-    width: 2rem;
-    height: 2rem;
   }
 }

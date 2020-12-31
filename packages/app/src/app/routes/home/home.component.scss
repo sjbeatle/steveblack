@@ -1,0 +1,32 @@
+.sb-home {
+  &__songlist {
+    max-height: 500px;
+    overflow-x: scroll;
+  }
+
+  &__alphalist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    ::ng-deep {
+      .sb-alphalist-link {
+        display: inline-block;
+        padding:.2em;
+        font-size: 1.2rem;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+
+        &:hover,
+        &:focus {
+          &::after {
+            display: inherit;
+          }
+        }
+      }
+    }
+  }
+}
