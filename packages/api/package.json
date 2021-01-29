@@ -4,7 +4,7 @@
   "description": "Official API for steveblackonline.com",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "node dist/server.js -watch",
     "build": "rm -rf dist && tsc",
     "clean": "rm -rf package-lock.json dist node_modules",
     "clean-dist": "rm -rf dist",

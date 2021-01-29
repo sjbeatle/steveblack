@@ -1,0 +1,54 @@
+.sb-songs {
+  &__title-row {
+    position: relative;
+    z-index: 10;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__songlist {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  &__header-row {
+    background-color: var(--base-bkg);
+    left: 0;
+    padding-top: 5rem;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 5;
+  }
+  &__alphalist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+
+    ::ng-deep {
+      .sb-alphalist-link {
+        display: inline-block;
+        padding:.2em;
+        font-size: 1.2rem;
+        width: 2rem;
+        height: 2rem;
+        text-align: center;
+
+        &:hover,
+        &:focus {
+          &::after {
+            display: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+::ng-deep {
+  a[name] {
+    position: relative;
+    top: -16rem;
+  }
+}

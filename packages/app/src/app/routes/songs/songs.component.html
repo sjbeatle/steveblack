@@ -1,0 +1,12 @@
+<div class="row sb-songs__header-row">
+  <div class="col pt-5">
+    <h2 class="sb-songs__title sb-heading-1">Steve Black Songlist</h2>
+    <app-spinner *ngIf="isFetching; else songs"></app-spinner>
+    <app-alpha-list *ngIf="!isFetching" class="sb-songs__alphalist" [showLetters]="letters"></app-alpha-list>
+  </div>
+</div>
+<div *ngIf="!isFetching" class="row sb-songs__list-row">
+  <div class="col">
+    <app-song-list class="sb-songs__songlist" [covers]="covers"></app-song-list>
+  </div>
+</div>

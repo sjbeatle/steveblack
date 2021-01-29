@@ -17,6 +17,7 @@ import { PerformancesComponent } from './routes/performances/performances.compon
 import { ContactComponent } from './routes/contact/contact.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AdminComponent } from './routes/admin/admin.component';
+import { SongsComponent } from './routes/songs/songs.component';
 import { SongListComponent } from './components/song-list/song-list.component';
 import { TextComponent } from './components/inputs/text/text.component';
 import { EllipsifyMeDirective } from './ellipsify-me.directive';
@@ -39,6 +40,7 @@ import { AlphaListComponent } from './components/alpha-list/alpha-list.component
     TextComponent,
     EllipsifyMeDirective,
     AlphaListComponent,
+    SongsComponent
   ],
   imports: [
     BrowserModule,
