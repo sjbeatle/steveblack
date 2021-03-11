@@ -2,6 +2,11 @@ import { DBConnect } from './db';
 import cors from 'cors';
 import express from 'express';
 import { initRoutes } from './routes';
+import * as dotenv from 'dotenv';
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: '../../.env' });
+}
 
 DBConnect();
 
