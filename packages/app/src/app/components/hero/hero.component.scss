@@ -16,14 +16,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: var(--pop-shadow);
-  height: 300px;
   margin-bottom: 3rem;
   overflow: hidden;
   position: relative;
-
-  @media (min-width: 1000px) {
-    height: 30vw;
-  }
+  height: 25vw;
 
   &__location,
   &__credit {
