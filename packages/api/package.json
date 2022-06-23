@@ -4,13 +4,13 @@
   "description": "Official API for steveblackonline.com",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node dist/server.js -watch",
-    "build": "rm -rf dist && tsc",
-    "clean": "rm -rf package-lock.json dist node_modules",
-    "clean-dist": "rm -rf dist",
-    "clean:install:build": "npm run clean && npm i && npm run build",
-    "dev": "nodemon src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-disable": "node dist/server.js -watch",
+    "build-disable": "rm -rf dist && tsc",
+    "clean-disable": "rm -rf package-lock.json dist node_modules",
+    "clean-dist-disable": "rm -rf dist",
+    "clean:install:build-disable": "npm run clean && npm i && npm run build",
+    "dev-disable": "nodemon src/server.ts",
+    "test-disable": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Steve Black <stevenjblack@gmail.com",
