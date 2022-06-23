@@ -23,7 +23,11 @@
   </div>
 </form>
 
-<app-alpha-list class="sb-add-song-alpha-list" [showTop]="true"></app-alpha-list>
+<app-alpha-list
+  class="sb-add-song-alpha-list"
+  [showTop]="true"
+  [parentSelector]="'.sb-add-song__songlist'"
+></app-alpha-list>
 <div class="sb-add-song__songlist">
   <app-spinner class="sb-add-song__spinner" *ngIf="isFetching"></app-spinner>
   <app-song-list

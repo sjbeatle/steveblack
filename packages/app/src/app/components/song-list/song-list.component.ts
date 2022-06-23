@@ -39,4 +39,19 @@ export class SongListComponent implements OnInit {
     this.song.emit({ id, song });
   }
 
+  getLetter(artist: string): string {
+    const words = artist.split(' ');
+    const articles = [
+      'a',
+      'an',
+      'the',
+    ];
+
+    if (words.length > 1 && articles.includes(words[0].toLowerCase())) {
+      return words.splice(1).join(' ')[0].toUpperCase();
+    }
+
+    return artist[0].toUpperCase();
+  }
+
 }

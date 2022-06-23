@@ -25,7 +25,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-body.admin {
+body.obscure-admin {
   background-image: url('/assets/songs_bkg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -192,7 +192,7 @@ i, em {
 }
 
 $btn-class: sb-button;
-button,
+button:not(.sb-link),
 input[type="button"],
 input[type="reset"],
 input[type="submit"],

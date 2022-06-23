@@ -1,3 +1,6 @@
+@import '~src/scss/variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
 .sb-songs {
   &__title-row {
     position: relative;
@@ -7,17 +10,27 @@
     text-align: center;
   }
   &__songlist {
-    margin: 0 auto;
+    margin: 1rem auto 0 auto;
     max-width: 500px;
   }
   &__header-row {
     background-color: var(--base-bkg);
-    left: 0;
-    padding-top: 5rem;
-    position: fixed;
-    right: 0;
-    top: 0;
+    position: sticky;
+    top: 4rem;
     z-index: 5;
+    @media (min-width: breakpoint-min(sm)) {
+      top: 5rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      height: 3rem;
+      background-color: var(--base-bkg);
+    }
   }
   &__alphalist {
     display: flex;
@@ -49,6 +62,6 @@
 ::ng-deep {
   a[name] {
     position: relative;
-    top: -16rem;
+    top: -15rem;
   }
 }

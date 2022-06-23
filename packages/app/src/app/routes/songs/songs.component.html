@@ -1,8 +1,8 @@
 <div class="row sb-songs__header-row">
-  <div class="col pt-5">
+  <div class="col">
     <h2 class="sb-songs__title sb-heading-1">Steve Black Songlist</h2>
     <app-spinner *ngIf="isFetching"></app-spinner>
-    <app-alpha-list *ngIf="!isFetching" class="sb-songs__alphalist" [showLetters]="letters"></app-alpha-list>
+    <app-alpha-list *ngIf="!isFetching" class="sb-songs__alphalist" [showLetters]="letters" [parentSelector]="'html'"></app-alpha-list>
   </div>
 </div>
 <div *ngIf="!isFetching" class="row sb-songs__list-row">

@@ -2,7 +2,7 @@
   <a name="top"></a>
   <div *ngIf="showCount" class="sb-songlist__count sb-heading-3 mb-3">{{ songCount }} Songs</div>
   <article class="sb-songlist__wrap" *ngFor="let artist of covers; index as i;" [attr.aria-labelledby]="artist.artist.toLowerCase().split(' ').join('-') + '-' + i">
-    <a [name]="artist.artist[0].toUpperCase()"></a>
+    <a [name]="getLetter(artist.artist)"></a>
     <div class="sb-songlist__artist-wrap">
       <h3 [id]="artist.artist.toLowerCase().split(' ').join('-') + '-' + i" class="sb-songlist__artist sb-heading-3 mb-0">{{ artist.artist }}</h3>
       <button

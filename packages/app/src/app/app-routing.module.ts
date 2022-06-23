@@ -21,7 +21,7 @@ const routes: Routes = [
     component: ContactComponent,
   },
   {
-    path: 'admin',
+    path: 'obscure-admin',
     component: AdminComponent,
   },
   {

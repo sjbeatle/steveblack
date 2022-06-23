@@ -20,7 +20,7 @@ a {
     align-items: center;
     display: flex;
     flex: 1 1 auto;
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     font-family: 'Koho', sans-serif;
     text-transform: uppercase;
@@ -35,7 +35,7 @@ a {
     margin-right: .5rem;
     border-right: 2px solid;
     padding-right: .5rem;
-    width: 2rem;
+    width: 1.5rem;
 
     @media (min-width: breakpoint-min(sm)) {
       margin-right: 1rem;
