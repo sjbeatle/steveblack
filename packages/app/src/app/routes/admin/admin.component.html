@@ -23,6 +23,75 @@
   </div>
 </form>
 
+
+<form class="sb-add-song" [formGroup]="performanceForm" (ngSubmit)="onSubmit()">
+  <h2 class="sb-add-song__title sb-heading-1">Add Performance</h2>
+  <app-input-text
+    placeholder="Venue"
+    label="Venue"
+    name="venue"
+    required="true"
+    [list]="venuesList"
+    controlName="venue"
+    [group]="performanceForm"
+  ></app-input-text>
+  <div class="mt-3">
+    <button type="button">Add Venue</button>
+  </div>
+  <app-input-date
+    label="Date"
+    name="date"
+    required="true"
+    controlName="date"
+    [group]="performanceForm"
+  ></app-input-date>
+  <div class="row">
+    <div class="col-2">
+      <app-input-time
+        label="Time Start"
+        name="timeStart"
+        required="true"
+        controlName="timeStart"
+        [group]="performanceForm"
+      ></app-input-time>
+    </div>
+    <div class="col-2">
+      <app-input-time
+        label="Time End"
+        name="timeEnd"
+        required="true"
+        controlName="timeEnd"
+        [group]="performanceForm"
+      ></app-input-time>
+    </div>
+  </div>
+  <app-input-text
+    label="Cover Charge?"
+    name="cover"
+    controlName="cover"
+    [group]="performanceForm"
+  ></app-input-text>
+  <app-input-text
+    label="Revenue"
+    name="revenue"
+    controlName="revenue"
+    [group]="performanceForm"
+  ></app-input-text>
+  <app-input-textarea
+    label="Notes"
+    name="notes"
+    controlName="notes"
+    [group]="performanceForm"
+  ></app-input-textarea>
+  <div class="mt-3">
+    <button type="submit" [disabled]="!performanceForm.valid">Add Performance</button>
+    <button class="ml-2" type="reset">Clear</button>
+  </div>
+</form>
+<div *ngFor="let performance of performances " class="arc-item">
+  {{ performance.date }} &nbsp; {{ performance.venueDetails.name }}
+</div>
+
 <app-alpha-list
   class="sb-add-song-alpha-list"
   [showTop]="true"

@@ -1,0 +1,20 @@
+<div class="input-textarea" [class.input-textarea--required]="required" [formGroup]="group">
+  <label
+    class="input-textarea__label"
+    [for]="forId"
+  >
+    {{ label }}
+    <fa-icon *ngIf="required"
+      class="input-textarea__required-icon"
+      [icon]="faAsterisk"
+    ></fa-icon>
+  </label>
+  <textarea
+    class="input-textarea__input"
+    [attr.placeholder]="placeholder"
+    [name]="name"
+    [id]="forId"
+    [attr.required]="required"
+    [formControlName]="controlName"
+  ></textarea>
+</div>

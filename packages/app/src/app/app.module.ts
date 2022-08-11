@@ -20,6 +20,9 @@ import { AdminComponent } from './routes/admin/admin.component';
 import { SongsComponent } from './routes/songs/songs.component';
 import { SongListComponent } from './components/song-list/song-list.component';
 import { TextComponent } from './components/inputs/text/text.component';
+import { DateComponent } from './components/inputs/date/date.component';
+import { TimeComponent } from './components/inputs/time/time.component';
+import { TextareaComponent } from './components/inputs/textarea/textarea.component';
 import { EllipsifyMeDirective } from './ellipsify-me.directive';
 import { AlphaListComponent } from './components/alpha-list/alpha-list.component';
 
@@ -38,6 +41,9 @@ import { AlphaListComponent } from './components/alpha-list/alpha-list.component
     AdminComponent,
     SongListComponent,
     TextComponent,
+    DateComponent,
+    TimeComponent,
+    TextareaComponent,
     EllipsifyMeDirective,
     AlphaListComponent,
     SongsComponent

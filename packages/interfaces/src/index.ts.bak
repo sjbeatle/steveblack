@@ -2,3 +2,5 @@
 
 export * from './covers';
 export * from './themes';
+export * from './performance';
+export * from './venue';

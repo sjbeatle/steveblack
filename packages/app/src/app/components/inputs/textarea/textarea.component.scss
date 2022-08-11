@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+$root: input-textarea;
+.#{$root} {
+  margin-top: 1rem;
+
+  &__label {
+    display: block;
+    margin-bottom: .5rem;
+  }
+
+  &__input {
+
+  }
+}
+
+.#{$root}--required {
+  .#{$root} {
+    &__required-icon {
+      color: var(--required-color);
+    }
+  }
+}

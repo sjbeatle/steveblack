@@ -291,6 +291,10 @@ textarea {
   &:focus {
     @include base-focus;
   }
+
+  &.ng-dirty.ng-invalid {
+    border: 1px solid lightcoral;
+  }
 }
 
 pre {

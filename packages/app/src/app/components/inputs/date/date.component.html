@@ -1,0 +1,20 @@
+<div class="input-date" [class.input-date--required]="required" [formGroup]="group">
+  <label
+    class="input-date__label"
+    [for]="forId"
+  >
+    {{ label }}
+    <fa-icon *ngIf="required"
+      class="input-date__required-icon"
+      [icon]="faAsterisk"
+    ></fa-icon>
+  </label>
+  <input
+    class="input-date__input"
+    type="date"
+    [name]="name"
+    [id]="forId"
+    [attr.required]="required"
+    [formControlName]="controlName"
+  />
+</div>
