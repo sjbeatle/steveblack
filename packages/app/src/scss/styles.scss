@@ -25,6 +25,10 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+.sb-background-color {
+  background-color: var(--base-bkg);
+}
+
 body.obscure-admin {
   background-image: url('/assets/songs_bkg.jpg');
   background-repeat: no-repeat;
@@ -293,7 +297,8 @@ textarea {
   }
 
   &.ng-dirty.ng-invalid {
-    border: 1px solid lightcoral;
+    outline-color: red;
+    border: 2px solid red;
   }
 }
 

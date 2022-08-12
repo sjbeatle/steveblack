@@ -10,18 +10,34 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  showVenueForm = false;
   songForm = this.fb.group({
     artist: ['', Validators.required],
     song: ['', Validators.required],
   });
   performanceForm = this.fb.group({
-    venue: ['', Validators.required],
-    date: ['', Validators.required],
-    timeStart: ['', Validators.required],
-    timeEnd: ['', Validators.required],
-    cover: ['', Validators.pattern('^[1-9]\\d*$')],
-    revenue: ['', Validators.pattern('^[1-9]\\d*$')],
+    venue: [''],
+    date: [new Date().toISOString().split('T')[0], Validators.required],
+    timeStart: ['12:00', Validators.required],
+    timeEnd: ['15:00', Validators.required],
+    coverCharge: ['', Validators.pattern('^[1-9]\\d*$')],
+    revenue: [
+      '200',
+      [
+        Validators.pattern('^[1-9]\\d*$'),
+        Validators.required,
+      ],
+    ],
     notes: [''],
+    name: [''],
+    phone: [''],
+    email: ['', Validators.email],
+    website: [''],
+    addressLineOne: [''],
+    addressLineTwo: [''],
+    city: [''],
+    state: ['NY'],
+    zip: [''],
   });
   isFetching = true;
   covers: ICovers[];
@@ -63,7 +79,21 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.getCovers();
     this.getVenues();
-    // this.getPerformances();
+    this.performanceForm.get('timeStart').valueChanges.subscribe(
+      (val) => {
+        if (!val) {
+          return;
+          this.performanceForm.get('timeEnd').setValue('12:00');
+        }
+        const [hour, min] = val.split(':');
+        const newHour = `${(parseInt(hour, 10) + 3) % 24}`;
+        const newHourString = newHour.length === 1
+          ? `0${newHour}`
+          : newHour;
+        this.performanceForm.get('timeEnd').setValue(`${newHourString}:${min}`);
+      }
+    );
+    this.getPerformances();
   }
 
   getCovers() {
@@ -77,6 +107,7 @@ export class AdminComponent implements OnInit {
   getPerformances() {
     this.performanceService.getPerformances()
       .subscribe(() => {
+        console.log('>> TESTING >> this.performanceService.performances', this.performanceService.performances);
         this.isFetching = false;
       });
   }
@@ -84,6 +115,7 @@ export class AdminComponent implements OnInit {
   getVenues() {
     this.performanceService.getVenues()
       .subscribe(() => {
+        console.log('>> TESTING >> this.performanceService.venues', this.performanceService.venues);
         this.isFetching = false;
       });
   }
@@ -102,6 +134,10 @@ export class AdminComponent implements OnInit {
       .subscribe(() => {
         this.getCovers();
       });
+  }
+
+  toggleVenueForm() {
+    this.showVenueForm = !this.showVenueForm;
   }
 
   onSubmit() {
@@ -127,5 +163,47 @@ export class AdminComponent implements OnInit {
           this.getCovers();
         });
     }
+  }
+
+  submitPerformance() {
+    const payload = {
+      ...this.performanceForm.value,
+    };
+
+    if (!payload.venue) {
+      payload.venue = {
+        name: payload.name,
+        phone: payload.phone,
+        email: payload.email,
+        website: payload.website,
+        addressLineOne: payload.addressLineOne,
+        addressLineTwo: payload.addressLineTwo,
+        city: payload.city,
+        state: payload.state,
+        zip: payload.zip,
+      };
+    } else {
+      this.performanceService.venues.forEach((venue) => {
+        if (venue.name === payload.venue) {
+          // @ts-ignore
+          payload.venue = venue._id;
+        }
+      });
+    }
+    this.performanceService.addPerformance(payload)
+      .subscribe(() => {
+        if (typeof payload.venue === 'object') {
+          this.getVenues();
+          this.toggleVenueForm();
+        }
+        this.getPerformances();
+        this.performanceForm.reset({
+          date: payload.date,
+          timeStart: '12:00',
+          timeEnd: '15:00',
+          state: 'NY',
+          revenue: '200',
+        });
+      });
   }
 }

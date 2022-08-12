@@ -1,3 +1,6 @@
+@import '~src/scss/variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
 ::ng-deep {
   .admin footer {
     display: none;
@@ -27,6 +30,11 @@ $top-pad: 3rem;
     border-left: 1px solid rgba(0,0,0,.1);
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,.2);
 
+    @media (max-width: breakpoint-max(sm)) {
+      position: relative;
+      width: inherit;
+    }
+
     &--hide {
       opacity: 0;
     }
@@ -39,6 +47,10 @@ $top-pad: 3rem;
     bottom:0;
     overflow: scroll;
     padding: $top-pad .25rem .25rem .25rem;
+
+    @media (max-width: breakpoint-max(sm)) {
+      display: none;
+    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -57,5 +69,15 @@ $top-pad: 3rem;
         height: 2rem;
       }
     }
+  }
+}
+
+fieldset {
+  border-left: .25rem solid var(--base-border);
+  padding-left: .5rem;
+
+  legend {
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 }

@@ -36,15 +36,15 @@ export class PerformanceService {
     private http: HttpClient,
   ) { }
 
-  // addSong(artistId: string, song: string) {
-  //   return this.http.put(`${config.endpoint}/${artistId}/song`, { song })
-  //     .pipe(
-  //       catchError(() => {
-  //         const message = 'Error adding song for ' + artistId;
-  //         return throwError(message);
-  //       }),
-  //     );
-  // }
+  addPerformance(payload: IPerformance) {
+    return this.http.post(`${config.performanceEndpoint}`, payload)
+      .pipe(
+        catchError(() => {
+          const message = 'Error adding performance';
+          return throwError(message);
+        }),
+      );
+  }
 
   // addArtist(artist: string) {
   //   return this.http.post(`${config.endpoint}/`, { artist })
