@@ -8,8 +8,8 @@
   display: flex;
 
   .dateWrap {
+    flex: 0 0 7rem;
     border-left: 5px solid var(--link);
-    width: 7rem;
     padding-left: .5rem;
   }
 

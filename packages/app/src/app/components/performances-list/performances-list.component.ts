@@ -9,13 +9,13 @@ import { ITime, PerformanceService } from 'src/app/services/performance.service'
 export class PerformancesListComponent implements OnInit {
   isLoading = true;
   static Day = [
-    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
     'Saturday',
+    'Sunday',
   ];
   static Month = [
     'January',

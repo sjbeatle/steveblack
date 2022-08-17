@@ -56,7 +56,7 @@ $homeBottomPadding: 8rem;
 
 .performance-heading {
   position: sticky;
-  top: 0;
+  top: -1px;
   background: var(--base-bkg);
   z-index: 10;
   padding-bottom: 1rem;
