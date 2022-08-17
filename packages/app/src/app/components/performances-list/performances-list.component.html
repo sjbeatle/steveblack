@@ -14,6 +14,7 @@
           <a *ngIf="performance.website; else name" class="sb-link--decorate-none" [href]="performance.website" target="_blank">{{ performance.name }}</a>
           <ng-template #name>{{ performance.name }}</ng-template>
         </div>
+        <div class="location">{{ performance.city }}, {{ performance.state }}</div>
         <div class="time">{{ performance.set }}</div>
         <div class="cover" *ngIf="performance.cover">
           (${{ performance.cover}} cover charge)
