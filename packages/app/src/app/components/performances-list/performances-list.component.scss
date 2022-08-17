@@ -1,22 +1,85 @@
-.sb-gigs {
-  overflow-x: auto;
-  max-height: 20rem;
-
-  &__month {
-    background: var(--base-bkg);
-    position: sticky;
-    top: 0;
-    padding: .25rem;
-    border-bottom: 1px solid var(--base-border);
-  }
-
-  &__end {
-    text-align: center;
-    padding-top: 3rem;
-  }
-}
-
-
-.sb-gigs-list {
+.gig {
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--base-border);
 }
+
+.heading {
+  display: flex;
+
+  .dateWrap {
+    border-left: 5px solid var(--link);
+    width: 7rem;
+    padding-left: .5rem;
+  }
+
+  .date {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .monthString {
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .day {
+      font-size: 3.5rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .dayString {
+      text-transform: uppercase;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+  }
+
+  .venue-name {
+    margin-bottom: 0;
+  }
+  .time {
+    font-family: Oswald;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .cover {
+    font-size: .9rem;
+    opacity: .75;
+  }
+}
+
+.end {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  font-family: Oswald;
+  text-transform: uppercase;
+}
+
+
+// .sb-gigs {
+//   overflow-x: auto;
+//   max-height: 20rem;
+
+//   &__month {
+//     background: var(--base-bkg);
+//     position: sticky;
+//     top: 0;
+//     padding: .25rem;
+//     border-bottom: 1px solid var(--base-border);
+//   }
+
+//   &__end {
+//     text-align: center;
+//     padding-top: 3rem;
+//   }
+// }
+
+
+// .sb-gigs-list {
+//   margin-bottom: 2rem;
+// }

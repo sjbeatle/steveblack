@@ -6,8 +6,8 @@ export enum Meridian {
 }
 
 export interface IPerformance {
-  venue: IVenue;
-  date: number;
+  venue: string | IVenue;
+  date: string;
   timeStart: string;
   timeEnd: string;
   notes: string;

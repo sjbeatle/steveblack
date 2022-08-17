@@ -1,4 +1,25 @@
 <app-spinner *ngIf="isLoading; else gigs"></app-spinner>
 <ng-template #gigs>
-  TBD
+  <div *ngFor="let performance of performances" class="gig">
+    <div class="heading">
+      <div class="dateWrap">
+        <div class="date">
+          <div class="monthString sb-heading-5">{{ performance.monthString }}</div>
+          <div class="day">{{ performance.day }}</div>
+          <div class="dayString">{{ performance.dayString }}</div>
+        </div>
+      </div>
+      <section>
+        <div class="venue-name sb-heading-2">
+          <a *ngIf="performance.website; else name" class="sb-link--decorate-none" [href]="performance.website" target="_blank">{{ performance.name }}</a>
+          <ng-template #name>{{ performance.name }}</ng-template>
+        </div>
+        <div class="time">{{ performance.set }}</div>
+        <div class="cover" *ngIf="performance.cover">
+          (${{ performance.cover}} cover charge)
+        </div>
+      </section>
+    </div>
+  </div>
 </ng-template>
+<div class="end">END</div>

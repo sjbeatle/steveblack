@@ -1,4 +1,4 @@
-import { ICovers, IVenue, IPerformance } from '@steveblack/interfaces';
+import { ICovers } from '@steveblack/interfaces';
 import { Component, OnInit } from '@angular/core';
 import { CoversService } from 'src/app/services/covers.service';
 import { PerformanceService } from 'src/app/services/performance.service';
@@ -66,7 +66,7 @@ export class AdminComponent implements OnInit {
     return this.performanceService.performances
       .map(performance => ({
         ...performance,
-        venueDetails: this.performanceService.venues.get(performance.venue),
+        venueDetails: this.performanceService.venues.get(performance.venue as string),
       }));
   }
 
@@ -79,6 +79,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.getCovers();
     this.getVenues();
+    this.getPerformances();
     this.performanceForm.get('timeStart').valueChanges.subscribe(
       (val) => {
         if (!val) {
@@ -93,7 +94,6 @@ export class AdminComponent implements OnInit {
         this.performanceForm.get('timeEnd').setValue(`${newHourString}:${min}`);
       }
     );
-    this.getPerformances();
   }
 
   getCovers() {

@@ -9,6 +9,12 @@ const config = {
   venueEndpoint: 'https://www.mariasbasement.com/venue',
 };
 
+export interface ITime {
+  hour: number,
+  minute: string,
+  meridian: string,
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +41,30 @@ export class PerformanceService {
   constructor(
     private http: HttpClient,
   ) { }
+
+  parseTime(time: string): ITime {
+    let hour: number;
+    let meridian: string;
+    const [hourString, minute] = time.split(':');
+
+    hour = parseInt(hourString, 10);
+
+    console.log('>> TESTING >> hour start', hour);
+    if (hour === 0) {
+      hour = 12;
+      meridian = 'am';
+    } else {
+      meridian = hour >= 12 ? 'pm' : 'am';
+      hour = hour > 12 ? hour - 12 : hour;
+    }
+    console.log('>> TESTING >> hour end', hour);
+    console.log('>> TESTING >> meridian', meridian);
+    return {
+      hour,
+      minute,
+      meridian,
+    }
+  }
 
   addPerformance(payload: IPerformance) {
     return this.http.post(`${config.performanceEndpoint}`, payload)
@@ -74,7 +104,12 @@ export class PerformanceService {
             (a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1,
           );
 
-          this.performances = sortPerformances;
+          this.performances = sortPerformances.map((p) => {
+            return {
+              ...p,
+              date: new Date(p.date).toISOString().split('T')[0],
+            };
+          });
 
           return true;
         }),

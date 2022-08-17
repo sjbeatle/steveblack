@@ -47,6 +47,12 @@ body.dark .invert-theme .invert-theme .invert-theme {
     #C-CARD
   \*------------------------------------*/
   --card-border: #212121;
+
+  /*------------------------------------*\
+    #MISC
+  \*------------------------------------*/
+  --base-light-gradient-vertical: linear-gradient(0deg, #F8F9F9 0%, #F8F9F900 100%);
+  --base-light-gradient-vertical-inverse: linear-gradient(180deg, #F8F9F9 0%, #F8F9F900 100%);
 }
 
 body.dark,
@@ -84,6 +90,12 @@ body.light .invert-theme .invert-theme .invert-theme {
     #C-CARD
   \*------------------------------------*/
   --card-border: #2C2A2C;
+
+  /*------------------------------------*\
+    #MISC
+  \*------------------------------------*/
+  --base-light-gradient-vertical: linear-gradient(0deg, #212121 0%, #21212100 100%);
+  --base-light-gradient-vertical: linear-gradient(180deg, #212121 0%, #21212100 100%);
 }
 
 $secondary-font: Oswald, sans-serif;
