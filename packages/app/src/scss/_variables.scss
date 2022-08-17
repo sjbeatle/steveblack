@@ -95,7 +95,7 @@ body.light .invert-theme .invert-theme .invert-theme {
     #MISC
   \*------------------------------------*/
   --base-light-gradient-vertical: linear-gradient(0deg, #212121 0%, #21212100 100%);
-  --base-light-gradient-vertical: linear-gradient(180deg, #212121 0%, #21212100 100%);
+  --base-light-gradient-vertical-inverse: linear-gradient(180deg, #212121 0%, #21212100 100%);
 }
 
 $secondary-font: Oswald, sans-serif;
