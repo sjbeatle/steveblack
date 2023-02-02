@@ -26,6 +26,6 @@
   "homepage": "https://github.com/sjbeatle/steveblack#readme",
   "dependencies": {
     "get-contrast-ratio": "^0.2.1",
-    "lerna": "^3.22.1"
+    "lerna": "^6.4.1"
   }
 }
