@@ -2,6 +2,35 @@
   margin-bottom: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--base-border);
+  position: relative;
+
+  &--canceled {
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      background-color: var(--base-bkg);
+      z-index: 1;
+      opacity: .8;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      content: 'Canceled';
+      z-index: 2;
+      transform: translate(-50%, -70%);
+      text-transform: uppercase;
+      font-family: Oswald, sans-serif;
+      font-size: 3rem;
+      color: var(--base-color);
+      opacity: .8;
+    }
+  }
 }
 
 .heading {

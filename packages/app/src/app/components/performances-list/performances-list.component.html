@@ -1,6 +1,10 @@
 <app-spinner *ngIf="isLoading; else gigs"></app-spinner>
 <ng-template #gigs>
-  <div *ngFor="let performance of performances" class="gig">
+  <div
+    *ngFor="let performance of performances"
+    class="gig"
+    [class.gig--canceled]="performance.isCanceled"
+  >
     <div class="heading">
       <div class="dateWrap">
         <div class="date">

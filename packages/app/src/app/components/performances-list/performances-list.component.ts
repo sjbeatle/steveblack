@@ -79,6 +79,7 @@ export class PerformancesListComponent implements OnInit {
           website,
           cover: p.coverCharge,
           set: PerformancesListComponent.parseSet(timeStart, timeEnd),
+          isCanceled: p.isCanceled,
         }
       });
   }
