@@ -191,7 +191,7 @@
   </div>
   <div class="col-sm mt-5 sb-background-color">
     <div *ngFor="let performance of performances.reverse()">
-      {{ performance.date }} &nbsp; {{ performance.venueDetails.name }}
+      {{ performance.date }} &nbsp; {{ performance.venueDetails.name }} &nbsp; {{ parseTime(performance.timeStart) }} - {{ parseTime(performance.timeEnd) }}
     </div>
   </div>
 </div>

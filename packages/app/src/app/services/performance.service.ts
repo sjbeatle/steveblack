@@ -49,16 +49,9 @@ export class PerformanceService {
 
     hour = parseInt(hourString, 10);
 
-    console.log('>> TESTING >> hour start', hour);
-    if (hour === 0) {
-      hour = 12;
-      meridian = 'am';
-    } else {
-      meridian = hour >= 12 ? 'pm' : 'am';
-      hour = hour > 12 ? hour - 12 : hour;
-    }
-    console.log('>> TESTING >> hour end', hour);
-    console.log('>> TESTING >> meridian', meridian);
+    meridian = hour >= 12 ? 'pm' : 'am';
+    hour = hour > 12 ? hour - 12 : (hour || 0);
+
     return {
       hour,
       minute,

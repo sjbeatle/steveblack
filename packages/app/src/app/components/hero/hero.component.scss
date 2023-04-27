@@ -1,25 +1,25 @@
 :host {
-  display: none;
-
-  @media (min-width: 320px) {
-    display: block;
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-  }
+  display: block;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
 }
 
 .sb-hero {
-  background-image: url('/assets/IMG_4596.JPG');
-  background-position: 0 83%;
+  background-image: url('/assets/IMG_0359.jpg');
+  background-position: 0 23%;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: var(--pop-shadow);
   margin-bottom: 3rem;
   overflow: hidden;
   position: relative;
-  height: 25vw;
+  height: 45vw;
+
+  @media (min-width: 576px) {
+    height: 25vw;
+  }
 
   &__location,
   &__credit {

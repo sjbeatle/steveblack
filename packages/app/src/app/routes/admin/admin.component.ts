@@ -96,6 +96,11 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  parseTime(time: string) {
+    const { hour, minute, meridian } = this.performanceService.parseTime(time);
+    return `${hour}:${minute}${meridian}`;
+  }
+
   getCovers() {
     this.coversService.getCovers()
       .subscribe((covers) => {
@@ -107,7 +112,7 @@ export class AdminComponent implements OnInit {
   getPerformances() {
     this.performanceService.getPerformances()
       .subscribe(() => {
-        console.log('>> TESTING >> this.performanceService.performances', this.performanceService.performances);
+        // console.log('>> TESTING >> this.performanceService.performances', this.performanceService.performances);
         this.isFetching = false;
       });
   }
@@ -115,7 +120,7 @@ export class AdminComponent implements OnInit {
   getVenues() {
     this.performanceService.getVenues()
       .subscribe(() => {
-        console.log('>> TESTING >> this.performanceService.venues', this.performanceService.venues);
+        // console.log('>> TESTING >> this.performanceService.venues', this.performanceService.venues);
         this.isFetching = false;
       });
   }
