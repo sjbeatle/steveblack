@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import moment from 'moment';
 import { ITime, PerformanceService } from 'src/app/services/performance.service';
 
 @Component({
@@ -67,7 +68,7 @@ export class PerformancesListComponent implements OnInit {
 
         return {
           dayString: PerformancesListComponent.Day[date.getDay()],
-          monthString: PerformancesListComponent.Month[date.getMonth()],
+          monthString: PerformancesListComponent.Month[parseInt(month, 10) - 1],
           month,
           day,
           year,
