@@ -8,6 +8,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --stream",
     "dev": "lerna run dev --stream",
+    "deploy": "bash ./deploy.sh",
     "clean": "lerna run clean",
     "postclean": "rm -rf ./node_modules package-lock.json",
     "clean:install:build": "lerna run clean:install:build",

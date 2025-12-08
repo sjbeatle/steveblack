@@ -25,8 +25,12 @@
       </div>
     </form>
   </div>
-  <div class="col-sm-4">
-    <form class="sb-add-song" [formGroup]="performanceForm" (ngSubmit)="submitPerformance()">
+  <div class="col-sm-3">
+    <form
+      class="sb-add-song"
+      [formGroup]="performanceForm"
+      (ngSubmit)="submitPerformance()"
+    >
       <h2 class="sb-add-song__title sb-heading-1">Add Performance</h2>
       <div *ngIf="!showVenueForm">
         <app-input-text
@@ -134,7 +138,9 @@
             </div>
           </div>
           <div class="mt-3">
-            <button type="button" (click)="toggleVenueForm()">Cancel Add Venue</button>
+            <button type="button" (click)="toggleVenueForm()">
+              Cancel Add Venue
+            </button>
           </div>
         </fieldset>
       </div>
@@ -184,14 +190,35 @@
         [group]="performanceForm"
       ></app-input-textarea>
       <div class="mt-3">
-        <button type="submit" [disabled]="!performanceForm.valid">Add Performance</button>
+        <button type="submit" [disabled]="!performanceForm.valid">
+          Add Performance
+        </button>
         <button class="ml-2" type="reset">Clear</button>
       </div>
     </form>
   </div>
-  <div class="col-sm mt-5 sb-background-color">
-    <div *ngFor="let performance of performances.reverse()">
-      {{ performance.date }} &nbsp; {{ performance.venueDetails.name }} &nbsp; {{ parseTime(performance.timeStart) }} - {{ parseTime(performance.timeEnd) }}
+  <div class="col-sm-4 mt-5 p-1 sb-background-color">
+    <div *ngFor="let performance of performances" class="p-1">
+      <button
+        class="sb-button--icon"
+        [title]="'Delete ' + performance.venueDetails.name"
+        (click)="deletePerformance(performance._id)"
+      >
+        <span class="sr-only">Delete {{ performance.venueDetails.name }}</span>
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
+      <button
+        class="sb-button--icon sb-button--info ml-1"
+        [disabled]="performance.isCanceled"
+        [title]="'Cancel ' + performance.venueDetails.name"
+        (click)="cancelPerformance(performance._id)"
+      >
+        <span class="sr-only">Cancel {{ performance.venueDetails.name }}</span>
+        <fa-icon [icon]="faMicrophoneAltSlash"></fa-icon>
+      </button>
+      {{ performance.date }} &nbsp; {{ performance.venueDetails.name }} &nbsp;
+      {{ parseTime(performance.timeStart) }} -
+      {{ parseTime(performance.timeEnd) }}
     </div>
   </div>
 </div>

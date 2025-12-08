@@ -107,3 +107,6 @@ html
 # Operating System
 .DS_Store
 keys/*
+
+# CI/CD
+deploy.sh

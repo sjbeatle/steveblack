@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { last, catchError } from 'rxjs/operators';
-import { IPerformance, IVenue } from '@steveblack/interfaces';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { IPerformance, IVenue } from "@steveblack/interfaces";
+import { Observable, throwError } from "rxjs";
+import { catchError, last } from "rxjs/operators";
 
 const config = {
-  performanceEndpoint: 'https://www.mariasbasement.com/performance',
-  venueEndpoint: 'https://www.mariasbasement.com/venue',
+  performanceEndpoint: "https://www.mariasbasement.com/api/performances",
+  venueEndpoint: "https://www.mariasbasement.com/api/venues",
 };
 
 export interface ITime {
-  hour: number,
-  minute: string,
-  meridian: string,
+  hour: number;
+  minute: string;
+  meridian: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 // @ts-ignore
 export class PerformanceService {
@@ -24,49 +24,60 @@ export class PerformanceService {
   venues = new Map<string, IVenue>();
 
   static removeArticles(s: string): string {
-    const words = s.split(' ');
-    const articles = [
-      'a',
-      'an',
-      'the',
-    ];
+    const words = s.split(" ");
+    const articles = ["a", "an", "the"];
 
     if (words.length > 1 && articles.includes(words[0].toLowerCase())) {
-      return words.splice(1).join(' ');
+      return words.splice(1).join(" ");
     }
 
     return s;
   }
 
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private http: HttpClient) {}
 
   parseTime(time: string): ITime {
     let hour: number;
     let meridian: string;
-    const [hourString, minute] = time.split(':');
+    const [hourString, minute] = time.split(":");
 
     hour = parseInt(hourString, 10);
 
-    meridian = hour >= 12 ? 'pm' : 'am';
-    hour = hour > 12 ? hour - 12 : (hour || 0);
+    meridian = hour >= 12 ? "pm" : "am";
+    hour = hour > 12 ? hour - 12 : hour || 0;
 
     return {
       hour,
       minute,
       meridian,
-    }
+    };
   }
 
   addPerformance(payload: IPerformance) {
-    return this.http.post(`${config.performanceEndpoint}`, payload)
-      .pipe(
-        catchError(() => {
-          const message = 'Error adding performance';
-          return throwError(message);
-        }),
-      );
+    return this.http.post(`${config.performanceEndpoint}`, payload).pipe(
+      catchError(() => {
+        const message = "Error adding performance";
+        return throwError(message);
+      })
+    );
+  }
+
+  cancelPerformance(id: string, payload: Partial<IPerformance>) {
+    return this.http.put(`${config.performanceEndpoint}/${id}`, payload).pipe(
+      catchError(() => {
+        const message = "Error cancelling performance";
+        return throwError(message);
+      })
+    );
+  }
+
+  deletePerformance(id: string) {
+    return this.http.delete(`${config.performanceEndpoint}/${id}`).pipe(
+      catchError(() => {
+        const message = "Error deleting performance";
+        return throwError(message);
+      })
+    );
   }
 
   // addArtist(artist: string) {
@@ -90,47 +101,47 @@ export class PerformanceService {
   // }
 
   getPerformances(): Observable<IPerformance[]> {
-    return this.http.get<IPerformance[]>(config.performanceEndpoint)
-      .pipe(
-        last((performances) => {
-          const sortPerformances = performances.sort(
-            (a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1,
-          );
+    return this.http.get<IPerformance[]>(config.performanceEndpoint).pipe(
+      last((performances) => {
+        const sortPerformances = performances.sort((a, b) =>
+          new Date(a.date) > new Date(b.date) ? 1 : -1
+        );
 
-          this.performances = sortPerformances.map((p) => {
-            return {
-              ...p,
-              date: new Date(p.date).toISOString().split('T')[0],
-            };
-          });
+        this.performances = sortPerformances.map((p) => {
+          return {
+            ...p,
+            date: new Date(p.date).toISOString().split("T")[0],
+          };
+        });
 
-          return true;
-        }),
-        catchError(() => {
-          const message = 'Error loading performances!';
-          return throwError(message);
-        }),
-      );
+        return true;
+      }),
+      catchError(() => {
+        const message = "Error loading performances!";
+        return throwError(message);
+      })
+    );
   }
 
   getVenues(): Observable<IVenue[]> {
-    return this.http.get<IVenue[]>(config.venueEndpoint)
-      .pipe(
-        last((venues) => {
-          this.venues.clear();
-          venues
-            .sort(
-              (a, b) => PerformanceService.removeArticles(a.name).localeCompare(PerformanceService.removeArticles(b.name)),
+    return this.http.get<IVenue[]>(config.venueEndpoint).pipe(
+      last((venues) => {
+        this.venues.clear();
+        venues
+          .sort((a, b) =>
+            PerformanceService.removeArticles(a.name).localeCompare(
+              PerformanceService.removeArticles(b.name)
             )
-            .forEach((v) => this.venues.set(v._id, v));
+          )
+          .forEach((v) => this.venues.set(v._id, v));
 
-          return true;
-        }),
-        catchError(() => {
-          const message = 'Error loading venues!';
-          return throwError(message);
-        }),
-      );
+        return true;
+      }),
+      catchError(() => {
+        const message = "Error loading venues!";
+        return throwError(message);
+      })
+    );
   }
 
   // deleteSong(artistId: string, song: string): Observable<any> {
